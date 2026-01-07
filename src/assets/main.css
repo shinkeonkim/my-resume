@@ -101,6 +101,6 @@ strong {
   .page-break {
     break-before: page;
     page-break-before: always; /* Legacy support */
-    padding-top: 15mm; /* Add margin at the top of the new page */
+    padding-top: 2rem; /* Add margin at the top of the new page */
   }
 }

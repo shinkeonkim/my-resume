@@ -24,9 +24,9 @@ import PageBreak from './PageBreak.vue'
       <SkillsSection />
       <ProjectSection />
       <ActivitySection />
+      <PageBreak />
       <EducationSection />
       <AwardsSection />
-      <PageBreak />
       <CertificatesSection />
     </div>
   </div>
