@@ -5,6 +5,7 @@
   --a4-width: 210mm;
   --a4-min-height: 297mm;
   --bulma-text-strong: #0a0a0a; /* Force strong text to be black/very dark */
+  --bulma-size-small: 0.85rem;
 }
 
 body {

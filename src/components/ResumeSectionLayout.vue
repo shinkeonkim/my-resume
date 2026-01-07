@@ -9,7 +9,7 @@ defineProps<{
     <h2 class="section-title title is-4 has-text-weight-bold mb-3">
       <span class="title-text">{{ title }}</span>
     </h2>
-    <div class="section-content">
+    <div class="section-content is-small">
       <slot></slot>
     </div>
   </section>
