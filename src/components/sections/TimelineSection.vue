@@ -179,7 +179,6 @@ const years = computed(() => {
 }
 
 .bar-label {
-  text-shadow: 0 0 3px rgba(0, 0, 0, 0.8); /* Strong shadow for white text on light BG if overflowing */
   z-index: 10;
   background-color: transparent;
   padding: 0;
