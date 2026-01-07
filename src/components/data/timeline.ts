@@ -22,7 +22,7 @@ const timeLineItems: TimelineItem[] = [
     id: 3,
     name: '(주) 그렙',
     type: 'career',
-    paddingLeft: 90,
+    paddingLeft: 100,
     segments: [
       { start: '2019.06', end: '2019.08' },
       { start: '2019.12', end: '2020.02' },
