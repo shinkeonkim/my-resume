@@ -1,0 +1,106 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+@import 'bulma/css/bulma.css';
+
+:root {
+  --a4-width: 210mm;
+  --a4-min-height: 297mm;
+  --bulma-text-strong: #0a0a0a; /* Force strong text to be black/very dark */
+}
+
+body {
+  background-color: #525659; /* Chrome's PDF viewer grey */
+  margin: 0;
+  color: #000;
+  font-family:
+    'Pretendard',
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    'Helvetica Neue',
+    'Segoe UI',
+    'Apple SD Gothic Neo',
+    'Noto Sans KR',
+    'Malgun Gothic',
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    sans-serif;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+/* Override Bulma strong text explicitly if var doesn't catch all */
+strong {
+  color: #0a0a0a !important;
+  font-weight: 700;
+}
+
+/* Print controls */
+.print-only {
+  display: none;
+}
+
+@page {
+  size: A4;
+  margin: 15mm 20mm; /* Global margin for EVERY page */
+}
+
+@media print {
+  body {
+    background-color: white;
+    width: 210mm;
+    /* height: 297mm;  Removing fixed height allows natural paging */
+  }
+  #app {
+    padding: 0;
+    display: block;
+    width: 210mm;
+    margin: 0 auto;
+  }
+  .resume-content {
+    padding: 0 !important; /* Managed by @page margins now */
+    width: 100%;
+    max-width: 210mm;
+    box-shadow: none !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block;
+  }
+
+  /* Reset colors for print */
+  .title,
+  .subtitle,
+  .content,
+  .has-text-grey,
+  .has-text-grey-light,
+  .has-text-grey-dark {
+    color: #000 !important;
+  }
+
+  /* ensure strong remains black in print */
+  strong {
+    color: #000 !important;
+  }
+
+  /* Ensure links are black */
+  a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+
+  .page-break {
+    break-before: page;
+    page-break-before: always; /* Legacy support */
+    padding-top: 15mm; /* Add margin at the top of the new page */
+  }
+}
