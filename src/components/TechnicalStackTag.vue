@@ -23,4 +23,13 @@ defineProps<{
   border-radius: 4px;
   height: auto;
 }
+
+@media screen and (max-width: 768px) {
+  .tech-stack-tag {
+    font-size: 0.65rem;
+    padding: 0.05rem 0.3rem;
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+}
 </style>

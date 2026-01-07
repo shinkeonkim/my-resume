@@ -5,7 +5,7 @@ import { introductions } from '../data/introductions'
 
 <template>
   <ResumeSectionLayout title="About">
-    <div class="content has-text-grey-dark is-size-6">
+    <div class="content has-text-grey-dark is-small">
       <ul>
         <li v-for="(introduction, index) in introductions" :key="index" class="">
           {{ introduction.content }}

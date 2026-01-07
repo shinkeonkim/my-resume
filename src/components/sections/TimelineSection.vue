@@ -65,7 +65,8 @@ const years = computed(() => {
 
 <template>
   <ResumeSectionLayout title="Timeline">
-    <div class="gantt-chart">
+    <div class="gantt-chart-container" style="min-width: 0; width: 100%; max-width: 100%; overflow-x: auto;">
+      <div class="gantt-chart" style="width: 100%; min-width: min-content;">
       <!-- Years Labels (Absolute Positioning to match grid) -->
       <div class="years-axis mb-2">
         <div
@@ -78,38 +79,40 @@ const years = computed(() => {
         </div>
       </div>
 
-      <!-- Rows -->
       <div class="bars-container">
-        <div v-for="item in timeLineItems" :key="item.id" class="gantt-row">
-          <div class="row-track">
-            <div
-              v-for="(seg, idx) in item.segments"
-              :key="idx"
-              class="bar-wrapper"
-              :style="getPositionStyle(seg)"
-            >
-              <div class="bar" :class="`is-${item.type}`" :title="`${item.name}`">
-                <span
-                  class="bar-label"
-                  :style="{ paddingLeft: `${item.paddingLeft}px` }"
-                  v-if="idx === 0"
-                  >{{ item.name }}</span
-                >
-                <span class="bar-label" v-else>&nbsp;</span>
+        <div class="bars-inner">
+          <div v-for="item in timeLineItems" :key="item.id" class="gantt-row">
+            <div class="row-track">
+              <div
+                v-for="(seg, idx) in item.segments"
+                :key="idx"
+                class="bar-wrapper"
+                :style="getPositionStyle(seg)"
+              >
+                <div class="bar" :class="`is-${item.type}`" :title="`${item.name}`">
+                  <span
+                    class="bar-label"
+                    :style="{ paddingLeft: `${item.paddingLeft}px` }"
+                    v-if="idx === 0"
+                    >{{ item.name }}</span
+                  >
+                  <span class="bar-label" v-else>&nbsp;</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <!-- Precise Grid Lines -->
-        <div class="grid-lines">
-          <div
-            v-for="year in years"
-            :key="year"
-            class="grid-line"
-            :style="{ left: `${getLeftPosition(year + '.01')}%` }"
-          ></div>
+          <!-- Precise Grid Lines -->
+          <div class="grid-lines">
+            <div
+              v-for="year in years"
+              :key="year"
+              class="grid-line"
+              :style="{ left: `${getLeftPosition(year + '.01')}%` }"
+            ></div>
+          </div>
         </div>
       </div>
+    </div>
     </div>
   </ResumeSectionLayout>
 </template>
@@ -131,6 +134,18 @@ const years = computed(() => {
   height: 1.5rem;
   border-bottom: 1px solid #7a7a7a;
   margin-bottom: 0.5rem;
+  min-width: 600px; /* Force minimum width to prevent squashing */
+}
+
+@media screen and (max-width: 768px) {
+  .gantt-chart {
+    border-radius: 4px; /* Keep radius or match parent better */
+    margin: 0;
+    width: 100%;
+    padding: 0.7rem 0.7rem 0rem 0.7rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 .year-label {
@@ -144,12 +159,17 @@ const years = computed(() => {
 .bars-container {
   position: relative;
   padding-top: 0.5rem;
+  overflow-x: auto;
+}
+
+.bars-inner {
+  min-width: 600px; /* Match years-axis min-width */
+  position: relative;
 }
 
 .gantt-row {
   position: relative;
-  height: 1.8rem;
-  margin-bottom: 0.5rem;
+  height: 1.6rem;
 }
 
 .row-track {

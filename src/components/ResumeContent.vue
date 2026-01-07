@@ -13,15 +13,14 @@ import PageBreak from './PageBreak.vue'
 </script>
 
 <template>
-  <div class="resume-content p-6">
+  <div class="resume-content">
     <ResumeHeader />
 
     <div class="single-column">
       <IntroductionSection />
       <TimelineSection />
-      <ExperienceSection />
-      <PageBreak />
       <SkillsSection />
+      <ExperienceSection />
       <ProjectSection />
       <ActivitySection />
       <PageBreak />
@@ -34,7 +33,34 @@ import PageBreak from './PageBreak.vue'
 
 <style scoped>
 .resume-content {
-  height: 100%;
   color: #363636;
+  background-color: white;
+  width: 100%;
+  max-width: var(--a4-width);
+  min-height: var(--a4-min-height);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 3rem;
+  white-space: normal;
+}
+
+@media print {
+  .resume-content {
+    padding: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .resume-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1.5rem !important;
+    box-shadow: none;
+    min-height: auto;
+  }
 }
 </style>

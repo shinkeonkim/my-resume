@@ -19,11 +19,13 @@ defineProps<{
 
 <template>
   <div class="experience-item mb-5">
-    <div class="columns is-gapless is-mobile is-vcentered mb-2">
-      <div class="column">
-        <h3 class="title is-6 mb-0 has-text-black has-text-weight-bold">{{ title }}</h3>
+    <div class="columns is-gapless mb-2">
+      <div class="column pb-0">
+        <h3 class="experience-item-title title mb-0 has-text-black has-text-weight-bold">
+          {{ title }}
+        </h3>
       </div>
-      <div class="column is-narrow">
+      <div class="column is-narrow has-text-right-tablet">
         <span class="is-size-7 has-text-grey">{{ period }}</span>
       </div>
     </div>
@@ -35,9 +37,9 @@ defineProps<{
     <div v-if="details && details.length" class="content is-small mb-2">
       <ul class="detail-list">
         <li v-for="(detail, index) in details" :key="index" class="detail-item">
-          <div class="is-flex is-align-items-baseline">
+          <div class="detail-header">
             <span v-html="detail.content"></span>
-            <span v-if="detail.period" class="has-text-grey-light is-size-7 ml-2"
+            <span v-if="detail.period" class="has-text-grey-light is-size-7 ml-1-tablet"
               >({{ detail.period }})</span
             >
           </div>
@@ -77,12 +79,38 @@ defineProps<{
 <style scoped>
 .experience-item {
   margin-bottom: 2rem;
-  break-inside: avoid;
+}
+
+.experience-item-title {
+  /* Default standardized size: is-5 */
+  font-size: 1.25rem;
+}
+
+@media screen and (max-width: 768px) {
+  .experience-item-title {
+    font-size: 1rem; /* corresponds to is-size-6 */
+  }
 }
 
 .detail-list {
   margin-top: 0.5rem;
   margin-left: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .detail-list {
+    margin-left: 1rem;
+  }
+}
+
+.detail-header {
+  line-height: 1.4;
+}
+
+@media screen and (min-width: 769px) {
+  .ml-1-tablet {
+    margin-left: 0.5rem !important;
+  }
 }
 
 .tags {

@@ -42,7 +42,7 @@ export const projects = [
     ],
   },
   {
-    title: 'Athena (Project)',
+    title: 'Athena',
     period: '2025.04 ~ 2025.06',
     techStack: ['Django', 'Python', 'Rust', 'Docker', 'gRPC', 'PostgreSQL', 'Redis', 'Celery', 'Nginx', 'LLM'],
     details: [

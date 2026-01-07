@@ -7,11 +7,11 @@ import { experiences } from '../data/experiences'
 <template>
   <ResumeSectionLayout title="Work Experiences">
     <div v-for="(experience, index) in experiences" :key="index" class="company-block mb-5">
-      <h3 class="title is-5 mb-3 has-text-black has-text-weight-bold">
+      <h3 class="title is-5 is-size-6-mobile mb-3 has-text-black has-text-weight-bold">
         {{ experience.name }}
       </h3>
 
-      <div class="experience-items-list ml-4">
+      <div class="experience-items-list">
         <ExperienceItem
           v-for="(role, rIndex) in experience.roles"
           :key="rIndex"
@@ -27,8 +27,23 @@ import { experiences } from '../data/experiences'
 
 <style scoped>
 .experience-items-list {
-  border-left: 2px solid #f5f5f5;
-  padding-left: 1rem;
   padding-top: 0.2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .experience-items-list {
+    margin-left: 0;
+  }
+}
+
+.experience-items-list :deep(.experience-item-title) {
+  /* Shrink role titles to is-6 equivalent */
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .experience-items-list :deep(.experience-item-title) {
+    font-size: 0.9rem; /* is-7 equivalent */
+  }
 }
 </style>

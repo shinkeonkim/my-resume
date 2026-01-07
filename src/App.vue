@@ -43,6 +43,15 @@ const printResume = () => {
     0 0px 0 1px rgba(10, 10, 10, 0.02);
 }
 
+@media screen and (max-width: 768px) {
+  .a4-page {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
+
 @media print {
   .a4-page {
     box-shadow: none;

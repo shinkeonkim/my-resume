@@ -12,10 +12,10 @@ const profile = {
   <header class="resume-header mb-5">
     <div class="columns is-vcentered">
       <!-- Image on Left -->
-      <div class="column is-narrow">
-        <figure class="image is-128x128 photo-container">
+      <div class="column is-narrow has-text-centered-mobile">
+        <figure class="image is-128x128 photo-container is-inline-block-mobile">
           <img
-            src="../assets/shinkeonkim.jpg"
+            src="@/assets/shinkeonkim.jpg"
             alt="Profile Photo"
             style="border-radius: 4px; object-fit: scale-down; height: 100%; width: 100%"
           />
@@ -23,38 +23,38 @@ const profile = {
       </div>
 
       <!-- Info on Right -->
-      <div class="column">
-        <h1 class="title is-2 mb-1 has-text-black">{{ profile.name }}</h1>
-        <h2 class="subtitle is-4 has-text-black mb-3">{{ profile.role }}</h2>
+      <div class="column has-text-centered-mobile">
+        <h1 class="title is-2 is-size-3-mobile mb-1 has-text-black">{{ profile.name }}</h1>
+        <h2 class="subtitle is-4 is-size-5-mobile has-text-black mb-3">{{ profile.role }}</h2>
 
-        <div class="contact-info is-size-6">
-          <div class="mb-1">
+        <div class="contact-info is-small is-size-6-mobile is-flex is-flex-direction-column is-align-items-flex-start-tablet is-align-items-center-mobile">
+          <div class="contact-item mb-1">
             <a
               :href="'mailto:' + profile.email"
               class="icon-text has-text-black is-flex is-align-items-center"
             >
               <span class="icon is-small mr-2"><i class="fas fa-envelope"></i></span>
-              <span>{{ profile.email }}</span>
+              <span class="url-text">{{ profile.email }}</span>
             </a>
           </div>
-          <div class="mb-1">
+          <div class="contact-item mb-1">
             <a
               :href="profile.github"
               target="_blank"
               class="icon-text has-text-black is-flex is-align-items-center"
             >
               <span class="icon is-small mr-2"><i class="fab fa-github"></i></span>
-              <span>{{ profile.github }}</span>
+              <span class="url-text">{{ profile.github }}</span>
             </a>
           </div>
-          <div class="mb-1">
+          <div class="contact-item mb-1">
             <a
               :href="profile.website"
               target="_blank"
               class="icon-text has-text-black is-flex is-align-items-center"
             >
               <span class="icon is-small mr-2"><i class="fas fa-globe"></i></span>
-              <span>{{ profile.website }}</span>
+              <span class="url-text">{{ profile.website }}</span>
             </a>
           </div>
         </div>
@@ -64,13 +64,9 @@ const profile = {
 </template>
 
 <style scoped>
-.resume-header {
-  border-bottom: 2px solid #dbdbdb;
-  padding-bottom: 1rem;
-}
-
-.fixed-width-icon {
-  width: 20px; /* Ensure uniform width for vertical alignment */
-  text-align: center;
+  
+.url-text {
+  word-break: break-all;
+  overflow-wrap: break-word;
 }
 </style>
