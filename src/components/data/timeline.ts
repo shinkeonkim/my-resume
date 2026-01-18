@@ -16,7 +16,10 @@ const timeLineItems: TimelineItem[] = [
     name: '국민대학교',
     type: 'school',
     paddingLeft: 0,
-    segments: [{ start: '2019.03', end: 'Present' }],
+    segments: [
+      { start: '2019.03', end: '2020.12' },
+      { start: '2025.03', end: '2026.08' },
+    ],
   },
   {
     id: 3,
@@ -33,7 +36,7 @@ const timeLineItems: TimelineItem[] = [
   },
   {
     id: 4,
-    name: '군복무 (특전사)',
+    name: '군 복무',
     type: 'career',
     paddingLeft: 0,
     segments: [{ start: '2022.11', end: '2024.05' }],
