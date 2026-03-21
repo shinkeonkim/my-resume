@@ -19,12 +19,12 @@ import PageBreak from './PageBreak.vue'
     <div class="single-column">
       <IntroductionSection />
       <TimelineSection />
+      <EducationSection />
       <SkillsSection />
       <ExperienceSection />
       <ProjectSection />
       <ActivitySection />
       <PageBreak />
-      <EducationSection />
       <AwardsSection />
       <CertificatesSection />
     </div>
