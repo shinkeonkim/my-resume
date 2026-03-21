@@ -5,6 +5,7 @@ const profile = {
   email: 'dev.shinkeonkim@gmail.com',
   github: 'https://github.com/shinkeonkim',
   website: 'https://코드.kr',
+  linkedin: 'https://www.linkedin.com/in/shinkeonkim',
 }
 </script>
 
@@ -49,6 +50,16 @@ const profile = {
           </div>
           <div class="contact-item mb-1">
             <a
+              :href="profile.linkedin"
+              target="_blank"
+              class="icon-text has-text-black is-flex is-align-items-center"
+            >
+              <span class="icon is-small mr-2"><i class="fab fa-linkedin"></i></span>
+              <span class="url-text">{{ profile.linkedin }}</span>
+            </a>
+          </div>
+          <div class="contact-item mb-1">
+            <a
               :href="profile.website"
               target="_blank"
               class="icon-text has-text-black is-flex is-align-items-center"
@@ -64,7 +75,6 @@ const profile = {
 </template>
 
 <style scoped>
-  
 .url-text {
   word-break: break-all;
   overflow-wrap: break-word;
