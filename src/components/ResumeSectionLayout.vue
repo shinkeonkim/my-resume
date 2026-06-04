@@ -6,7 +6,7 @@ defineProps<{
 
 <template>
   <section class="resume-section pb-2">
-    <h2 class="section-title title is-4 has-text-weight-bold mb-3">
+    <h2 class="section-title title is-4 has-text-weight-bold mb-3 mt-3">
       <span class="title-text">{{ title }}</span>
     </h2>
     <div class="section-content is-small">
@@ -23,7 +23,6 @@ defineProps<{
 .section-title {
   border-bottom: 2px solid #dbdbdb;
   padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
   color: #363636;
   line-height: 1.2;
 }
