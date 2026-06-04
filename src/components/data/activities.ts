@@ -1,15 +1,5 @@
 export const activities = [
   {
-    title: 'SIPE 4기',
-    period: '2025.04 ~ 2025.08',
-    details: [
-      {
-        content:
-          '<strong>[미션] AI가 나를 소개해줘요</strong>: AI, LLM 등을 활용하여 나를 소개, 대신하는 시스템을 구축하는 미션을 발제 및 진행',
-      },
-    ],
-  },
-  {
     title: '국민대학교 멋쟁이사자처럼',
     period: '2020.03 ~ 2025.12',
     details: [

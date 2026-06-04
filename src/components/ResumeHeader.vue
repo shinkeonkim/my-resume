@@ -1,10 +1,10 @@
 <script setup lang="ts">
 const profile = {
   name: '김신건',
-  role: 'Backend Engineer',
+  role: 'SW Engineer',
   email: 'dev.shinkeonkim@gmail.com',
   github: 'https://github.com/shinkeonkim',
-  website: 'https://코드.kr',
+  website: 'https://shinkeokim.com',
   linkedin: 'https://www.linkedin.com/in/shinkeonkim',
 }
 </script>

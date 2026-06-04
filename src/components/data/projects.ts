@@ -1,6 +1,32 @@
 export const projects = [
   {
-    title: '깜빡이',
+    title: '미핏 - AI 기반 가상면접플랫폼 서비스',
+    period: '2026-03 ~ 2026-05',
+    techStack: [
+      'Django',
+      'Python',
+      'PostgreSQL',
+      'Redis',
+      'Celery',
+      'k3s',
+      'AWS EC2',
+      'AWS S3',
+      'AWS SNS/SQS',
+      'AWS Lambda',
+      'Github Actions',
+      'Traefik',
+      'React.js',
+      'TypeScript',
+      'opencode',
+    ],
+    details: [
+      {
+        content: '역할: PM / BE 및 Infra Lead / AI 면접 시스템 개발',
+      },
+    ]
+  },
+  {
+    title: '깜빡이 - 아동 집중력 향상을 위한 AI 기반 게임 교육 플랫폼',
     period: '2025.10 ~ 2025.11',
     techStack: [
       'Django',
@@ -16,8 +42,7 @@ export const projects = [
     ],
     details: [
       {
-        content: '아동 집중력 향상을 위한 AI 기반 게임 교육 플랫폼',
-        subContents: ['<strong>역할</strong>: 백엔드 개발 및 인프라 구축'],
+        content: '역할: 백엔드 개발 및 인프라 구축',
       },
       {
         content: '분산 아키텍처 및 AI 리포트 시스템 구축',
@@ -42,13 +67,12 @@ export const projects = [
     ],
   },
   {
-    title: 'Athena',
+    title: 'Athena - 문제 해결과 학습을 위한 AI 알고리즘 학습 플랫폼',
     period: '2025.04 ~ 2025.06',
     techStack: ['Django', 'Python', 'Rust', 'Docker', 'gRPC', 'PostgreSQL', 'Redis', 'Celery', 'Nginx', 'LLM'],
     details: [
       {
-        content: '문제 해결과 학습을 위한 인터랙티브 AI 알고리즘 학습 플랫폼',
-        subContents: ['<strong>역할</strong>: 기획, 단독 개발'],
+        content: '역할: 기획, 단독 개발',
       },
       {
         content: 'AI 기반 코드 피드백 및 격리된 실행 시스템 구축',

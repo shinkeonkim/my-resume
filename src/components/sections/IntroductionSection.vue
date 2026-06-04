@@ -8,7 +8,9 @@ import { introductions } from '../data/introductions'
     <div class="content has-text-grey-dark is-small">
       <ul>
         <li v-for="(introduction, index) in introductions" :key="index" class="">
-          {{ introduction.content }}
+          <strong>{{ introduction.title }}</strong>
+          <br />
+          {{ introduction.description }}
         </li>
       </ul>
     </div>
