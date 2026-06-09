@@ -1,18 +1,31 @@
 <script setup lang="ts">
-const profile = {
-  name: '김신건',
-  role: 'SW Engineer',
+import { computed } from 'vue'
+import { useLocalized } from '@/composables/useLocale'
+
+interface ProfileText {
+  name: string
+  role: string
+}
+
+const profileText = useLocalized<ProfileText>({
+  ko: { name: '김신건', role: 'SW 엔지니어' },
+  en: { name: 'Shinkeon Kim', role: 'SW Engineer' },
+})
+
+const profile = computed(() => ({
+  name: profileText.value.name,
+  role: profileText.value.role,
   email: 'dev.shinkeonkim@gmail.com',
   github: 'https://github.com/shinkeonkim',
-  website: 'https://shinkeokim.com',
+  website: 'https://shinkeonkim.com',
   linkedin: 'https://www.linkedin.com/in/shinkeonkim',
-}
+  portfolio: 'https://shinkeonkim.com/my-portfolio',
+}))
 </script>
 
 <template>
   <header class="resume-header mb-5">
     <div class="columns is-vcentered">
-      <!-- Image on Left -->
       <div class="column is-narrow has-text-centered-mobile">
         <figure class="image is-128x128 photo-container is-inline-block-mobile">
           <img
@@ -23,7 +36,6 @@ const profile = {
         </figure>
       </div>
 
-      <!-- Info on Right -->
       <div class="column has-text-centered-mobile">
         <h1 class="title is-2 is-size-3-mobile mb-1 has-text-black">{{ profile.name }}</h1>
         <h2 class="subtitle is-4 is-size-5-mobile has-text-black mb-3">{{ profile.role }}</h2>
@@ -46,6 +58,16 @@ const profile = {
             >
               <span class="icon is-small mr-2"><i class="fab fa-github"></i></span>
               <span class="url-text">{{ profile.github }}</span>
+            </a>
+          </div>
+          <div class="contact-item mb-1">
+            <a
+              :href="profile.portfolio"
+              target="_blank"
+              class="icon-text has-text-black is-flex is-align-items-center"
+            >
+              <span class="icon is-small mr-2"><i class="fas fa-briefcase"></i></span>
+              <span class="url-text">{{ profile.portfolio }}</span>
             </a>
           </div>
           <div class="contact-item mb-1">
