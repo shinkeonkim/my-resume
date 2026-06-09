@@ -196,43 +196,32 @@ const data: Record<'ko' | 'en', Project[]> = {
         {
           content: 'Domain-segregated backend on Django 6 with LLM integration',
           subContents: [
-            'Physically split 14 domain apps into domain and API layers and introduced a BaseService + execute() service layer pattern to avoid fat models/views anti-patterns.',
-            'Implemented JWT authentication (Access 5min / Refresh 7 days, Connection Fencing) and a subscription·ticket dual-deduction model with Celery Beat-driven daily resets.',
-            'Built LangChain RAG-based interview question generation, a pgvector dual embedding strategy (raw chunks + structured JSON), and TokenUsage cost tracking.',
-            'Authored 206 tests (Factory Boy + @patch mocking) covering both happy paths and edge cases.',
+            'Split domain apps into domain and API layers and introduced a custom Service and Task layer pattern to avoid the fat models/views anti-pattern.',
+            'Implemented subscription-based billing plus a ticket-based pricing model, along with a Celery Beat-driven daily ticket system.',
+            'Built LangChain RAG-based interview question generation, a pgvector dual embedding strategy (raw chunks + structured JSON), and LiteLLM-based cost tracking.',
+            'Reached 91% test coverage by writing happy-path and edge-case tests with Factory Boy + @patch mocking.',
           ],
         },
         {
           content: 'Self-hosted infrastructure on K3s with cost optimization',
           subContents: [
-            'Composed a 2-node K3s cluster on EC2 (nodepool isolation, PDB, RollingUpdate), saving ~$73/month versus an EKS control plane.',
-            'Introduced LiteLLM Proxy to centralize LLM calls across 6 pods with automatic OpenAI/Bedrock/Gemini fallback and virtual-key spend tracking.',
-            'Routed Pod → EC2 metadata traffic via iptables NAT, eliminating AWS Secret management in favor of automatic IAM Role credentials.',
-            'Operated Grafana Cloud + Loki monitoring with off-hours shutdown to keep total infra cost around $80–100/month.',
+            'Composed a 2-node K3s cluster on EC2 (nodepool isolation, RollingUpdate), saving ~$73/month versus an EKS control plane.',
+            'Introduced LiteLLM Proxy to centralize LLM calls across 6 pods with automatic OpenAI/Bedrock fallback.',
           ],
         },
         {
           content: 'Serverless video analysis pipeline and AI systems',
           subContents: [
             'Designed an S3 → SNS fan-out → 3 SQS → Lambda 4+1 (video/frame/audio/face/voice) processing pipeline and shared common modules through a Lambda Layer.',
-            'Optimized MediaPipe blendshape rule-based facial classification and OpenCV solvePnP gaze estimation to fit within the 250MB Lambda limit.',
-            'Parallelized resume analysis with the Celery chord pattern, reaching 30–60 seconds and ~$0.006 per resume while streaming progress through SSE.',
-          ],
-        },
-        {
-          content: 'React 19 frontend and real-time communication',
-          subContents: [
-            'Structured 14 feature modules with FSD 6-layer one-way dependency architecture and 12 Zustand stores to enable parallel development.',
-            'Implemented MediaPipe FaceLandmarker GPU-accelerated real-time face/gaze analysis and direct multipart S3 uploads (5MB chunks, presigned URLs).',
-            'Hardened auth with an in-memory Access Token plus HttpOnly Refresh Cookie, split realtime channels between WebSocket (interview session) and SSE (analysis progress), and handled multi-tab conflicts via Connection Fencing (code 4409).',
+            'Parallelized resume analysis to reach 30–60 seconds per resume at ~$0.006 each, streaming live progress through SSE.',
           ],
         },
         {
           content: 'PM responsibilities and technical decision leadership',
           subContents: [
-            'Led a 4-person team as PM, distributing ownership across 12 monorepo sub-projects and driving 9 key technical decisions (Django vs FastAPI, K3s vs EKS, edge-tts vs paid TTS, etc.).',
-            'Authored a 241-page final report and designed the business model (Free/Premium subscriptions + single-use tickets).',
-            'Responded to operational incidents (RDS connection pool exhaustion, STT silent failures) and established a Slack alert-based incident response process.',
+            'Led a 4-person team as PM, distributing ownership across 12 monorepo sub-projects and driving 9 key technical decisions (Django vs FastAPI, k3s vs k8s, edge-tts vs paid TTS, etc.).',
+            'Designed the business model (Free/Premium subscriptions + single-use tickets).',
+            'Responded to operational incidents such as RDS connection pool exhaustion and established a Slack alert-based incident response process.',
           ],
         },
       ],
