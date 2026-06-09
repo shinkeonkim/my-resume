@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import ResumeSectionLayout from '../ResumeSectionLayout.vue'
-import { certificates } from '../data/certificates';
+import { useCertificates } from '../data/certificates'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
+const certificates = useCertificates()
 </script>
 
 <template>
-  <ResumeSectionLayout title="Certificates">
+  <ResumeSectionLayout :title="t('section.certificates')">
     <div class="content is-small">
       <ul style="list-style: none; margin-left: 0">
         <li v-for="(certificate, index) in certificates" :key="index" class="mb-2">

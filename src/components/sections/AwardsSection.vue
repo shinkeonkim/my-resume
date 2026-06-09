@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import ResumeSectionLayout from '../ResumeSectionLayout.vue'
-import { awards } from '../data/awards'
+import { useAwards } from '../data/awards'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
+const awards = useAwards()
 </script>
 
 <template>
-  <ResumeSectionLayout title="Awards">
+  <ResumeSectionLayout :title="t('section.awards')">
     <div class="content is-small">
       <ul style="list-style: none; margin-left: 0">
         <li v-for="(award, index) in awards" :key="index" class="mb-2">

@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import ResumeSectionLayout from '../ResumeSectionLayout.vue'
 import ExperienceItem from '../ExperienceItem.vue'
-import { experiences } from '../data/experiences'
+import { useExperiences } from '../data/experiences'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
+const experiences = useExperiences()
 </script>
 
 <template>
-  <ResumeSectionLayout title="Work Experiences">
+  <ResumeSectionLayout :title="t('section.workExperiences')">
     <div v-for="(experience, index) in experiences" :key="index" class="company-block mb-5">
       <h3 class="title is-5 is-size-6-mobile mb-3 has-text-black has-text-weight-bold">
         {{ experience.name }}

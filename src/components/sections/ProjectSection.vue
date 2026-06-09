@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import ResumeSectionLayout from '../ResumeSectionLayout.vue'
 import ExperienceItem from '../ExperienceItem.vue'
-import { projects } from '../data/projects'
+import { useProjects } from '../data/projects'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
+const projects = useProjects()
 </script>
 
 <template>
-  <ResumeSectionLayout title="Projects">
+  <ResumeSectionLayout :title="t('section.projects')">
     <ExperienceItem
       v-for="(project, index) in projects"
       :key="index"

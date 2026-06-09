@@ -1,9 +1,11 @@
+import { computed } from 'vue'
 import type { TimelineItem } from '../types/TimeLineItem'
+import { useLocale } from '@/composables/useLocale'
 
 const minDate = new Date('2016-01-01')
 const maxDate = new Date('2026-12-31')
 
-const timeLineItems: TimelineItem[] = [
+const timelineItemsKo: TimelineItem[] = [
   {
     id: 1,
     name: '한민고등학교',
@@ -60,4 +62,69 @@ const timeLineItems: TimelineItem[] = [
   },
 ]
 
-export { minDate, maxDate, timeLineItems };
+const timelineItemsEn: TimelineItem[] = [
+  {
+    id: 1,
+    name: 'Hanmin High School',
+    type: 'school',
+    paddingLeft: 0,
+    segments: [{ start: '2016.03', end: '2019.02' }],
+  },
+  {
+    id: 2,
+    name: 'Kookmin University',
+    type: 'school',
+    paddingLeft: 0,
+    segments: [
+      { start: '2019.03', end: '2020.12' },
+      { start: '2025.03', end: '2026.08' },
+    ],
+  },
+  {
+    id: 3,
+    name: 'Grepp Inc.',
+    type: 'career',
+    paddingLeft: 100,
+    segments: [
+      { start: '2019.06', end: '2019.08' },
+      { start: '2019.12', end: '2020.02' },
+      { start: '2020.06', end: '2020.08' },
+      { start: '2020.12', end: '2022.10' },
+      { start: '2024.07', end: '2025.03' },
+    ],
+  },
+  {
+    id: 4,
+    name: 'Military Service',
+    type: 'career',
+    paddingLeft: 0,
+    segments: [{ start: '2022.11', end: '2024.05' }],
+  },
+  {
+    id: 10,
+    name: 'LikeLion at Kookmin Univ.',
+    type: 'activity',
+    paddingLeft: 0,
+    segments: [
+      { start: '2020.03', end: '2022.12' },
+      { start: '2024.01', end: '2025.12' },
+    ],
+  },
+  {
+    id: 11,
+    name: 'SIPE 4th',
+    type: 'activity',
+    paddingLeft: 0,
+    segments: [{ start: '2025.04', end: '2025.08' }],
+  },
+]
+
+const timelineByLocale = { ko: timelineItemsKo, en: timelineItemsEn }
+
+export function useTimeline() {
+  const { locale } = useLocale()
+  const timeLineItems = computed(() => timelineByLocale[locale.value])
+  return { minDate, maxDate, timeLineItems }
+}
+
+export { minDate, maxDate }

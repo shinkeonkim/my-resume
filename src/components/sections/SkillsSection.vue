@@ -1,12 +1,18 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import TechnicalStackTag from '../TechnicalStackTag.vue'
 import ResumeSectionLayout from '../ResumeSectionLayout.vue'
-import { skills, skill_descriptions } from '../data/skills'
+import { useSkills } from '../data/skills'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
+const skillsData = useSkills()
+const skills = computed(() => skillsData.value.skills)
+const skill_descriptions = computed(() => skillsData.value.skill_descriptions)
 </script>
 
 <template>
-  <ResumeSectionLayout title="Skills">
-    <!-- Tags -->
+  <ResumeSectionLayout :title="t('section.skills')">
     <div v-for="(items, category) in skills" :key="category" class="mb-4">
       <h3 class="title is-size-6 is-size-7-mobile has-text-black has-text-weight-bold mb-2">{{ category }}</h3>
       <div class="tags">
@@ -15,7 +21,6 @@ import { skills, skill_descriptions } from '../data/skills'
     </div>
 
     <div class="content is-small">
-      <!-- Descriptions -->
       <div class="mt-4">
         <div v-for="(desc, idx) in skill_descriptions" :key="idx" class="mb-3">
           <strong class="is-size-6 is-size-7-mobile">{{ desc.title }}</strong>

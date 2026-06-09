@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import ResumeSectionLayout from '../ResumeSectionLayout.vue'
-import { introductions } from '../data/introductions'
+import { useIntroductions } from '../data/introductions'
+import { useLocale } from '@/composables/useLocale'
+
+const introductions = useIntroductions()
+const { t } = useLocale()
 </script>
 
 <template>
-  <ResumeSectionLayout title="About">
+  <ResumeSectionLayout :title="t('section.about')">
     <div class="content has-text-grey-dark is-small">
       <ul>
         <li v-for="(introduction, index) in introductions" :key="index" class="">

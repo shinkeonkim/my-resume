@@ -1,18 +1,57 @@
-export const introductions = [
-  {
-    title: '파악하고 바로 움직입니다.',
-    description: '문제의 맥락을 빠르고 정확하게 파악한 뒤, 설계-구현-공유의 사이클을 빠르게 돌리며, 문제 해결과 팀의 성장에 기여합니다.',
-  },
-  {
-    title: '편안함은 저를 불안하게 만듭니다.',
-    description: '안정적인 환경에서 정체를 느끼면 새로운 도전에 뛰어드는 결정을 해왔고 좋은 결과를 이끌어냈습니다. 새로운 도전은 저를 성장하게 만들고, 팀에도 긍정적인 영향을 미친다고 믿습니다.',
-  },
-  {
-    title: '의견보다 근거가 먼저입니다.',
-    description: '의견 충돌이 생기면 감정이 아닌 근거로 경쟁해야 합니다. 주장을 뒷받침할 수 있는 것을 가져와 팀 전체가 더 나은 방향으로 나아갈 수 있도록 노력합니다. 더 좋은 의견이 있다면, 그것이 제 의견이 아니더라도 기꺼이 받아들이고, 더 나은 결과를 위해 협력합니다.',
-  },
-  {
-    title: '필요에 따라 직접 만들고, 직접 운영합니다.',
-    description: '벡엔드 개발을 주로 해왔지만, 필요하다면 인프라 설계, 프론트엔드 개발, AI 모델 활용까지 직접 필요한 것을 만듭니다. 서비스의 전체적인 흐름을 이해하고 운영할 수 있는 엔지니어를 지향합니다.'
-  }
-]
+import { useLocalized } from '@/composables/useLocale'
+
+interface Introduction {
+  title: string
+  description: string
+}
+
+const data: Record<'ko' | 'en', Introduction[]> = {
+  ko: [
+    {
+      title: '파악하고 바로 움직입니다.',
+      description:
+        '문제의 맥락을 빠르고 정확하게 파악한 뒤, 설계-구현-공유의 사이클을 빠르게 돌리며, 문제 해결과 팀의 성장에 기여합니다.',
+    },
+    {
+      title: '편안함은 저를 불안하게 만듭니다.',
+      description:
+        '안정적인 환경에서 정체를 느끼면 새로운 도전에 뛰어드는 결정을 해왔고 좋은 결과를 이끌어냈습니다. 새로운 도전은 저를 성장하게 만들고, 팀에도 긍정적인 영향을 미친다고 믿습니다.',
+    },
+    {
+      title: '의견보다 근거가 먼저입니다.',
+      description:
+        '의견 충돌이 생기면 감정이 아닌 근거로 경쟁해야 합니다. 주장을 뒷받침할 수 있는 것을 가져와 팀 전체가 더 나은 방향으로 나아갈 수 있도록 노력합니다. 더 좋은 의견이 있다면, 그것이 제 의견이 아니더라도 기꺼이 받아들이고, 더 나은 결과를 위해 협력합니다.',
+    },
+    {
+      title: '필요에 따라 직접 만들고, 직접 운영합니다.',
+      description:
+        '벡엔드 개발을 주로 해왔지만, 필요하다면 인프라 설계, 프론트엔드 개발, AI 모델 활용까지 직접 필요한 것을 만듭니다. 서비스의 전체적인 흐름을 이해하고 운영할 수 있는 엔지니어를 지향합니다.',
+    },
+  ],
+  en: [
+    {
+      title: 'Grasp the context, then act fast.',
+      description:
+        'I quickly and accurately understand the context of a problem, then iterate through the design–build–share cycle to deliver solutions and help the team grow.',
+    },
+    {
+      title: 'Comfort makes me restless.',
+      description:
+        'Whenever I feel stagnant in a stable environment, I choose to take on new challenges, and that choice has consistently led to meaningful outcomes. I believe new challenges grow me and positively influence the team.',
+    },
+    {
+      title: 'Evidence comes before opinion.',
+      description:
+        'When opinions clash, the competition should be based on evidence, not emotion. I bring data and reasoning to support my arguments so the team can move in the better direction. If a better idea is on the table, I gladly adopt it even when it is not mine, and collaborate for a better outcome.',
+    },
+    {
+      title: 'Build and run it myself when needed.',
+      description:
+        'My core focus is backend, but when needed I take infrastructure design, frontend development, and AI integration into my own hands. I aim to be an engineer who understands and operates the whole service end-to-end.',
+    },
+  ],
+}
+
+export function useIntroductions() {
+  return useLocalized(data)
+}

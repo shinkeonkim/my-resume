@@ -1,41 +1,102 @@
-export const skills = {
-  'Programming Language': ['Python', 'Ruby', 'C/C++', 'Golang', 'Java', 'JavaScript'],
-  'Web Framework': ['Ruby on Rails', 'Django', 'FastAPI'],
-  'DevOps': ['AWS', 'Docker', 'GitHub', 'GitHub Actions', 'Kubernetes'],
+import { useLocalized } from '@/composables/useLocale'
+
+interface SkillDescription {
+  title: string
+  items: string[]
 }
 
-export const skill_descriptions = [
-  {
-    title: 'Ruby on Rails / Ruby',
-    items: [
-      'Ruby on Rails를 이용해 원하는 프로덕트를 개발 할 수 있습니다.',
-      'Ruby on Rails의 DRY 원칙과 CoC를 이해하고 코드를 작성합니다.',
-      '수십만의 MAU를 가진 Ruby on Rails 프로덕션 서비스 개발을 했습니다.',
+interface SkillsData {
+  skills: Record<string, string[]>
+  skill_descriptions: SkillDescription[]
+}
+
+const data: Record<'ko' | 'en', SkillsData> = {
+  ko: {
+    skills: {
+      '프로그래밍 언어': ['Python', 'Ruby', 'C/C++', 'Golang', 'Java', 'JavaScript'],
+      '웹 프레임워크': ['Ruby on Rails', 'Django', 'FastAPI'],
+      DevOps: ['AWS', 'Docker', 'GitHub', 'GitHub Actions', 'Kubernetes'],
+    },
+    skill_descriptions: [
+      {
+        title: 'Ruby on Rails / Ruby',
+        items: [
+          'Ruby on Rails를 이용해 원하는 프로덕트를 개발 할 수 있습니다.',
+          'Ruby on Rails의 DRY 원칙과 CoC를 이해하고 코드를 작성합니다.',
+          '수십만의 MAU를 가진 Ruby on Rails 프로덕션 서비스 개발을 했습니다.',
+        ],
+      },
+      {
+        title: 'Django / Python',
+        items: [
+          'Django를 이용한 프로덕션 서비스 유지보수 경험이 있습니다.',
+          'Django를 활용하여 소규모 서비스를 개발했습니다.',
+          'Django / drf 를 이용한 백엔드 API 서버 개발과 다수의 사이드 프로젝트를 진행했습니다.',
+        ],
+      },
+      {
+        title: 'Algorithm / Data Structure',
+        items: [
+          '알고리즘 문제 출제 및 검수 업무를 수행했습니다.',
+          '알고리즘 대회 출전 및 수상 경험이 있습니다.',
+          '다수의 알고리즘 스터디 / 강의를 운영했습니다.',
+        ],
+      },
+      {
+        title: 'DevOps',
+        items: [
+          'AWS를 이용한 서버 관리 및 유지보수를 할 수 있습니다.',
+          '홈랩 k8s 클러스터를 구축하고 운용하고 있습니다.',
+          'GitHub Actions를 이용한 CI/CD 파이프라인을 구축했습니다.',
+          'Kubernetes를 이용한 컨테이너 오케스트레이션을 할 수 있습니다.',
+        ],
+      },
     ],
   },
-  {
-    title: 'Django / Python',
-    items: [
-      'Django를 이용한 프로덕션 서비스 유지보수 경험이 있습니다.',
-      'Django를 활용하여 소규모 서비스를 개발했습니다.',
-      'Django / drf 를 이용한 백엔드 API 서버 개발과 다수의 사이드 프로젝트를 진행했습니다.',
+  en: {
+    skills: {
+      'Programming Language': ['Python', 'Ruby', 'C/C++', 'Golang', 'Java', 'JavaScript'],
+      'Web Framework': ['Ruby on Rails', 'Django', 'FastAPI'],
+      DevOps: ['AWS', 'Docker', 'GitHub', 'GitHub Actions', 'Kubernetes'],
+    },
+    skill_descriptions: [
+      {
+        title: 'Ruby on Rails / Ruby',
+        items: [
+          'Capable of building production-grade products with Ruby on Rails.',
+          'Write code with a clear understanding of Rails\' DRY principle and Convention over Configuration.',
+          'Shipped Ruby on Rails production services with hundreds of thousands of MAU.',
+        ],
+      },
+      {
+        title: 'Django / Python',
+        items: [
+          'Experienced in maintaining Django-based production services.',
+          'Built small-scale services on top of Django.',
+          'Developed backend API servers with Django / DRF across numerous side projects.',
+        ],
+      },
+      {
+        title: 'Algorithm / Data Structure',
+        items: [
+          'Authored and reviewed algorithm problems professionally.',
+          'Competed in algorithm contests with award-winning results.',
+          'Organized and taught multiple algorithm study groups and lectures.',
+        ],
+      },
+      {
+        title: 'DevOps',
+        items: [
+          'Comfortable managing and maintaining servers on AWS.',
+          'Run a homelab Kubernetes cluster on a daily basis.',
+          'Built CI/CD pipelines on GitHub Actions.',
+          'Capable of orchestrating containers with Kubernetes.',
+        ],
+      },
     ],
   },
-  {
-    title: 'Algorithm / Data Structure',
-    items: [
-      '알고리즘 문제 출제 및 검수 업무를 수행했습니다.',
-      '알고리즘 대회 출전 및 수상 경험이 있습니다.',
-      '다수의 알고리즘 스터디 / 강의를 운영했습니다.',
-    ],
-  },
-  {
-    title: 'DevOps',
-    items: [
-      'AWS를 이용한 서버 관리 및 유지보수를 할 수 있습니다.',
-      '홈랩 k8s 클러스터를 구축하고 운용하고 있습니다.',
-      'GitHub Actions를 이용한 CI/CD 파이프라인을 구축했습니다.',
-      'Kubernetes를 이용한 컨테이너 오케스트레이션을 할 수 있습니다.',
-    ],
-  },
-]
+}
+
+export function useSkills() {
+  return useLocalized(data)
+}

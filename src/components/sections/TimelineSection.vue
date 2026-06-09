@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import ResumeSectionLayout from '../ResumeSectionLayout.vue'
-import { minDate, maxDate, timeLineItems } from '../data/timeline'
+import { useTimeline } from '../data/timeline'
 import type { TimelineSegment } from '../types/TimeLineItem'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
+const { minDate, maxDate, timeLineItems } = useTimeline()
 
 // Basic date parsing and handling
 const parseDate = (dateStr: string) => {
@@ -64,7 +68,7 @@ const years = computed(() => {
 </script>
 
 <template>
-  <ResumeSectionLayout title="Timeline">
+  <ResumeSectionLayout :title="t('section.timeline')">
     <div class="gantt-chart-container" style="min-width: 0; width: 100%; max-width: 100%; overflow-x: auto;">
       <div class="gantt-chart" style="width: 100%; min-width: min-content;">
       <!-- Years Labels (Absolute Positioning to match grid) -->

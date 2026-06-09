@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import ResumeSectionLayout from '../ResumeSectionLayout.vue'
-import { educations } from '../data/educations'
+import { useEducations } from '../data/educations'
+import { useLocale } from '@/composables/useLocale'
+
+const { t } = useLocale()
+const educations = useEducations()
 </script>
 
 <template>
-  <ResumeSectionLayout title="Education">
+  <ResumeSectionLayout :title="t('section.education')">
     <div v-for="(edu, index) in educations" :key="index" class="mb-4">
       <div class="columns is-vcentered mb-0">
         <div class="column pb-0">
