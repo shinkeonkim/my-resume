@@ -52,43 +52,32 @@ const data: Record<'ko' | 'en', Project[]> = {
         {
           content: 'Django 6 기반 도메인 분리 백엔드 설계 및 LLM 통합',
           subContents: [
-            '14개 도메인 앱을 도메인/API 레이어로 물리 분리하고 BaseService + execute() 서비스 레이어 패턴을 도입하여 fat models/views 안티패턴 회피',
-            'JWT 인증(Access 5분/Refresh 7일, Connection Fencing) 및 구독·티켓 이중 차감 + Celery Beat daily reset 시스템 구현',
-            'LangChain RAG 기반 면접 질문 생성, pgvector 이중 임베딩(원문 청크 + 구조화 JSON) 전략 및 TokenUsage 비용 추적 도입',
-            'Factory Boy + @patch 모킹 기반 정상/예외 케이스 테스트 206개 작성',
+            '도메인 앱을 도메인/API 레이어로 분리하고 Service, Task 레이어 자체 패턴을 도입하여 fat models/views 안티패턴 회피',
+            '구독제 및 티켓 기반 요금제 구현, Celery Beat 기반 일일 티켓 시스템 구현',
+            'LangChain RAG 기반 면접 질문 생성, pgvector 이중 임베딩(원문 청크 + 구조화 JSON) 전략 및 LiteLLM 기반 비용 추적 도입',
+            'Factory Boy + @patch 모킹 기반 정상/예외 케이스 테스트 작성으로 테스트 커버리지 91% 달성',
           ],
         },
         {
           content: 'K3s 기반 자체 호스팅 인프라 및 비용 최적화',
           subContents: [
-            'EC2 위 K3s 2노드 클러스터(nodepool 분리, PDB, RollingUpdate) 구성으로 EKS 대비 컨트롤 플레인 월 ~$73 절감',
-            'LiteLLM Proxy 도입으로 6개 Pod의 LLM 호출을 중앙화하고 OpenAI/Bedrock/Gemini 자동 폴백 + 가상키 Spend 추적 구축',
-            'iptables NAT로 Pod → EC2 메타데이터 라우팅 구성, AWS Secret 관리 제거 및 IAM Role 자격증명 자동 사용 전환',
-            'Grafana Cloud + Loki 모니터링과 비업무 시간 정지 전략으로 전체 운영비 월 ~$80-100 달성',
+            'EC2 위 K3s 2노드 클러스터(nodepool 분리, RollingUpdate) 구성으로 EKS 대비 컨트롤 플레인 월 ~$73 절감',
+            'LiteLLM Proxy 도입으로 6개 Pod의 LLM 호출을 중앙화하고 OpenAI/Bedrock 자동 폴백',
           ],
         },
         {
           content: '서버리스 영상 분석 파이프라인 및 AI 시스템 구축',
           subContents: [
             'S3 → SNS fan-out → 3 SQS → Lambda 4+1개(video/frame/audio/face/voice) 영상 처리 파이프라인 설계 및 Lambda Layer 공통 모듈화',
-            'MediaPipe blendshape 규칙 기반 표정 분류 + OpenCV solvePnP 시선 추정을 Lambda 250MB 제약 내에 최적화',
-            '이력서 분석을 Celery chord 패턴으로 병렬 처리하여 처리 시간 30-60초/이력서 $0.006 달성, SSE로 실시간 진행 상황 스트리밍',
-          ],
-        },
-        {
-          content: 'React 19 기반 Frontend 및 실시간 통신 구현',
-          subContents: [
-            'FSD 6레이어 단방향 의존 아키텍처와 Zustand 12개 store로 14개 features 모듈을 병렬 개발 가능하게 구성',
-            'MediaPipe FaceLandmarker GPU 가속 실시간 얼굴/시선 분석 및 S3 5MB 청크 멀티파트 직접 업로드(presigned URL) 구현',
-            '메모리 Access Token + HttpOnly Refresh Cookie 보안 강화 인증, WebSocket(면접 세션) / SSE(분석 진행) 이원화 및 Connection Fencing(code 4409) 다중 탭 충돌 처리',
+            '이력서 분석을 병렬 처리하여 처리 시간 30-60초 / 이력서 개당 분석 비용 $0.006 달성 / SSE로 실시간 진행 상황 스트리밍',
           ],
         },
         {
           content: 'PM 역할 및 기술 의사결정 주도',
           subContents: [
-            '4인 팀 PM으로 모노레포 12개 서브 프로젝트 책임 분배 및 9건의 핵심 기술 의사결정 리드 (Django vs FastAPI, K3s vs EKS, edge-tts vs 유료 TTS 등)',
-            '241페이지 최종보고서 원안 작성과 비즈니스 모델(Free/Premium 구독 + 1회성 티켓) 설계',
-            'RDS 커넥션 풀 고갈, STT Silent Failure 등 운영 인시던트 대응 및 Slack 알림 기반 인시던트 대응 체계 수립',
+            '4인 팀 PM으로 모노레포 12개 서브 프로젝트 책임 분배 및 9건의 핵심 기술 의사결정 리드 (Django vs FastAPI, k3s vs k8s, edge-tts vs 유료 TTS 등)',
+            '비즈니스 모델(Free/Premium 구독 + 1회성 티켓) 설계',
+            'RDS 커넥션 풀 고갈 등 운영 인시던트 대응 및 Slack 알림 기반 인시던트 대응 체계 수립',
           ],
         },
       ],
