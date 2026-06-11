@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useLocalized } from '@/composables/useLocale'
+import { useHeadline } from '@/composables/useResumeData'
 
 interface ProfileText {
   name: string
@@ -12,14 +13,16 @@ const profileText = useLocalized<ProfileText>({
   en: { name: 'Shinkeon Kim', role: 'SW Engineer' },
 })
 
+const headlineOverride = useHeadline()
+
 const profile = computed(() => ({
   name: profileText.value.name,
-  role: profileText.value.role,
+  role: headlineOverride.value ?? profileText.value.role,
   email: 'dev.shinkeonkim@gmail.com',
   github: 'https://github.com/shinkeonkim',
+  portfolio: 'https://shinkeonkim.github.io/my-portfolio/',
   website: 'https://shinkeonkim.com',
   linkedin: 'https://www.linkedin.com/in/shinkeonkim',
-  portfolio: 'https://shinkeonkim.com/my-portfolio',
 }))
 </script>
 

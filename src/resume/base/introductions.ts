@@ -1,11 +1,6 @@
-import { useLocalized } from '@/composables/useLocale'
+import type { Introduction, Locale } from './types'
 
-interface Introduction {
-  title: string
-  description: string
-}
-
-const data: Record<'ko' | 'en', Introduction[]> = {
+export const introductions: Record<Locale, Introduction[]> = {
   ko: [
     {
       title: '파악하고 바로 움직입니다.',
@@ -50,8 +45,4 @@ const data: Record<'ko' | 'en', Introduction[]> = {
         'My core focus is backend, but when needed I take infrastructure design, frontend development, and AI integration into my own hands. I aim to be an engineer who understands and operates the whole service end-to-end.',
     },
   ],
-}
-
-export function useIntroductions() {
-  return useLocalized(data)
 }

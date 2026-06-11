@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ResumeSectionLayout from '../ResumeSectionLayout.vue'
-import { useEducations } from '../data/educations'
+import { useEducations } from '@/composables/useResumeData'
 import { useLocale } from '@/composables/useLocale'
 
 const { t } = useLocale()

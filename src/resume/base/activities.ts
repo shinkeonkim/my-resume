@@ -1,30 +1,14 @@
-import { useLocalized } from '@/composables/useLocale'
+import type { Activity, Locale } from './types'
 
-interface ActivityDetail {
-  content: string
-}
-
-interface Activity {
-  title: string
-  period: string
-  details: ActivityDetail[]
-}
-
-const data: Record<'ko' | 'en', Activity[]> = {
+export const activities: Record<Locale, Activity[]> = {
   ko: [
     {
       title: '국민대학교 멋쟁이사자처럼',
       period: '2020.03 ~ 2025.12',
       details: [
-        {
-          content: '<strong>13기 운영진</strong> (2025.01 ~ 2025.12)',
-        },
-        {
-          content: '<strong>12기 운영진</strong> (2024.01 ~ 2024.12)',
-        },
-        {
-          content: '<strong>10기 운영진</strong> (2022.01 ~ 2022.12)',
-        },
+        { content: '<strong>13기 운영진</strong> (2025.01 ~ 2025.12)' },
+        { content: '<strong>12기 운영진</strong> (2024.01 ~ 2024.12)' },
+        { content: '<strong>10기 운영진</strong> (2022.01 ~ 2022.12)' },
         {
           content:
             '<strong>9기 운영진 대표</strong> (2021.01 ~ 2021.12)<br>' +
@@ -95,15 +79,9 @@ const data: Record<'ko' | 'en', Activity[]> = {
       title: 'LikeLion at Kookmin University',
       period: '2020.03 ~ 2025.12',
       details: [
-        {
-          content: '<strong>13th Generation Staff</strong> (2025.01 ~ 2025.12)',
-        },
-        {
-          content: '<strong>12th Generation Staff</strong> (2024.01 ~ 2024.12)',
-        },
-        {
-          content: '<strong>10th Generation Staff</strong> (2022.01 ~ 2022.12)',
-        },
+        { content: '<strong>13th Generation Staff</strong> (2025.01 ~ 2025.12)' },
+        { content: '<strong>12th Generation Staff</strong> (2024.01 ~ 2024.12)' },
+        { content: '<strong>10th Generation Staff</strong> (2022.01 ~ 2022.12)' },
         {
           content:
             '<strong>9th Generation President</strong> (2021.01 ~ 2021.12)<br>' +
@@ -169,8 +147,4 @@ const data: Record<'ko' | 'en', Activity[]> = {
       ],
     },
   ],
-}
-
-export function useActivities() {
-  return useLocalized(data)
 }

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import TechnicalStackTag from './TechnicalStackTag.vue'
-import type { LinkItem } from './types/LinkItem'
+import type { LinkItem } from '@/resume/base/types'
 
 interface DetailItem {
   content: string

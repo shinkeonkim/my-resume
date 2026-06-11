@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ResumeSectionLayout from '../ResumeSectionLayout.vue'
 import ExperienceItem from '../ExperienceItem.vue'
-import { useExperiences } from '../data/experiences'
+import { useExperiences } from '@/composables/useResumeData'
 import { useLocale } from '@/composables/useLocale'
 
 const { t } = useLocale()

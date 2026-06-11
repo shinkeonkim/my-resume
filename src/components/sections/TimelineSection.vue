@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import ResumeSectionLayout from '../ResumeSectionLayout.vue'
-import { useTimeline } from '../data/timeline'
-import type { TimelineSegment } from '../types/TimeLineItem'
+import { useTimeline } from '@/composables/useResumeData'
+import type { TimelineSegment } from '@/resume/base/types'
 import { useLocale } from '@/composables/useLocale'
 
 const { t } = useLocale()

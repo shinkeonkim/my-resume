@@ -1,0 +1,38 @@
+{
+  "schema": "ResumeVariant.v1",
+  "id": "example-backend-en",
+  "meta": {
+    "label": "Example Backend Engineer (EN)",
+    "visibility": "draft",
+    "locale": "en",
+    "jdRef": {
+      "company": "Example Corp",
+      "role": "Backend Engineer"
+    },
+    "source": "manual",
+    "updatedAt": "2026-06-11T00:00:00Z"
+  },
+  "overrides": {
+    "summary": "Backend-focused engineer with deep Rails/Django delivery, k3s/AWS ops, and LLM integration record.",
+    "headline": "Backend Engineer · Distributed Systems",
+    "include": {
+      "experienceIds": ["grepp-2024-edu-be", "grepp-2020-recruit-sw"],
+      "projectIds": ["proj-mefit", "proj-athena"]
+    },
+    "order": {
+      "experienceIds": ["grepp-2020-recruit-sw", "grepp-2024-edu-be"]
+    },
+    "customBullets": [
+      {
+        "targetType": "experienceRole",
+        "targetId": "grepp-2020-recruit-sw",
+        "bullets": [
+          "Migrated resume model from jsonb to a fully normalized schema with zero downtime.",
+          "Extracted NICE identity verification into a Flask + Lambda + DynamoDB shared service across 3 environments.",
+          "Shipped AWS Personalize-based personalized recommendations, lifting CTR and apply rate.",
+          "Established a zero-downtime schema cleanup playbook applied consistently across domains."
+        ]
+      }
+    ]
+  }
+}

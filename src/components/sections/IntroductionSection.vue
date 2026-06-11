@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ResumeSectionLayout from '../ResumeSectionLayout.vue'
-import { useIntroductions } from '../data/introductions'
+import { useIntroductions } from '@/composables/useResumeData'
 import { useLocale } from '@/composables/useLocale'
 
 const introductions = useIntroductions()

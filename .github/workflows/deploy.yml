@@ -5,45 +5,103 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      include_drafts:
+        description: 'Also build draft variants (private variants are never deployed)'
+        type: boolean
+        default: false
 
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  build:
-    name: Build
+  discover:
+    name: Discover variants
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      variant_matrix: ${{ steps.list.outputs.matrix }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+      - name: List variants for matrix
+        id: list
+        env:
+          INCLUDE_DRAFTS: ${{ inputs.include_drafts == true && 'public,draft' || 'public' }}
+        run: |
+          MATRIX=$(bun run list-variants --visibility=$INCLUDE_DRAFTS --format=matrix)
+          echo "matrix=$MATRIX" >> "$GITHUB_OUTPUT"
+          echo "Discovered variants (visibility=$INCLUDE_DRAFTS): $MATRIX"
+
+  build_base:
+    name: Build base resume
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-
       - name: Configure GitHub Pages
         id: pages
         uses: actions/configure-pages@v5
-
       - name: Install dependencies
         run: bun install --frozen-lockfile
-
-      - name: Build
+      - name: Build base
         env:
           GITHUB_PAGES_BASE: ${{ steps.pages.outputs.base_path }}
         run: bun run build
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+      - name: Upload base artifact
+        uses: actions/upload-artifact@v4
         with:
+          name: dist-base
           path: ./dist
 
-  deploy:
-    name: Deploy
-    needs: build
+  build_variants:
+    name: Build variant ${{ matrix.variant_id }}
+    needs: discover
+    if: ${{ needs.discover.outputs.variant_matrix != '' && fromJson(needs.discover.outputs.variant_matrix).include[0] != null }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.discover.outputs.variant_matrix) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Configure GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+      - name: Build variant
+        env:
+          GITHUB_PAGES_BASE: ${{ steps.pages.outputs.base_path }}
+          VARIANT_ID: ${{ matrix.variant_id }}
+        run: bun run build
+      - name: Upload variant artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-variant-${{ matrix.variant_id }}
+          path: ./dist
+
+  aggregate_and_deploy:
+    name: Aggregate + Deploy
+    needs: [build_base, build_variants]
+    if: ${{ always() && needs.build_base.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -53,6 +111,35 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Download base
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-base
+          path: ./public_site
+      - name: Download all variant builds
+        uses: actions/download-artifact@v4
+        with:
+          path: ./variant_artifacts
+          pattern: dist-variant-*
+      - name: Merge variants under /v/<id>/
+        run: |
+          mkdir -p public_site/v
+          if [ -d variant_artifacts ]; then
+            for dir in variant_artifacts/dist-variant-*; do
+              if [ -d "$dir" ]; then
+                id=$(basename "$dir" | sed 's/^dist-variant-//')
+                mkdir -p "public_site/v/$id"
+                cp -R "$dir"/. "public_site/v/$id"/
+                echo "merged variant: $id"
+              fi
+            done
+          fi
+          ls -la public_site
+          ls -la public_site/v || true
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./public_site
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

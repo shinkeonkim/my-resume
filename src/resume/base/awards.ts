@@ -1,28 +1,10 @@
-import { useLocalized } from '@/composables/useLocale'
+import type { Award, Locale } from './types'
 
-interface Award {
-  name: string
-  date: string
-  issuer: string
-}
-
-const data: Record<'ko' | 'en', Award[]> = {
+export const awards: Record<Locale, Award[]> = {
   ko: [
-    {
-      name: '국민대학교 캡스톤디자인 금상',
-      date: '2026.05',
-      issuer: '국민대학교',
-    },
-    {
-      name: '멋쟁이사자처럼 10기 전체 해커톤 동상',
-      date: '2022.08',
-      issuer: '멋쟁이사자처럼',
-    },
-    {
-      name: '롯데 x 멋쟁이사자처럼 연계 해커톤 동상',
-      date: '2020.10',
-      issuer: '멋쟁이사자처럼',
-    },
+    { name: '국민대학교 캡스톤디자인 금상', date: '2026.05', issuer: '국민대학교' },
+    { name: '멋쟁이사자처럼 10기 전체 해커톤 동상', date: '2022.08', issuer: '멋쟁이사자처럼' },
+    { name: '롯데 x 멋쟁이사자처럼 연계 해커톤 동상', date: '2020.10', issuer: '멋쟁이사자처럼' },
     {
       name: '제3회 국민대학교 알고리즘 대회 장려상',
       date: '2018.08',
@@ -55,16 +37,8 @@ const data: Record<'ko' | 'en', Award[]> = {
       date: '2026.05',
       issuer: 'Kookmin University',
     },
-    {
-      name: 'LikeLion 10th Generation Hackathon — Bronze',
-      date: '2022.08',
-      issuer: 'LikeLion',
-    },
-    {
-      name: 'Lotte × LikeLion Joint Hackathon — Bronze',
-      date: '2020.10',
-      issuer: 'LikeLion',
-    },
+    { name: 'LikeLion 10th Generation Hackathon — Bronze', date: '2022.08', issuer: 'LikeLion' },
+    { name: 'Lotte × LikeLion Joint Hackathon — Bronze', date: '2020.10', issuer: 'LikeLion' },
     {
       name: '3rd Kookmin Univ. Algorithm Contest — Encouragement Award',
       date: '2018.08',
@@ -91,8 +65,4 @@ const data: Record<'ko' | 'en', Award[]> = {
       issuer: 'Korea RoboCup Association',
     },
   ],
-}
-
-export function useAwards() {
-  return useLocalized(data)
 }

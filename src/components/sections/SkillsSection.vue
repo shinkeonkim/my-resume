@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import TechnicalStackTag from '../TechnicalStackTag.vue'
 import ResumeSectionLayout from '../ResumeSectionLayout.vue'
-import { useSkills } from '../data/skills'
+import { useSkills } from '@/composables/useResumeData'
 import { useLocale } from '@/composables/useLocale'
 
 const { t } = useLocale()

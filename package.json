@@ -13,7 +13,10 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix --cache",
-    "format": "prettier --write --experimental-cli src/"
+    "format": "prettier --write --experimental-cli src/",
+    "list-variants": "bun scripts/list-variants.ts",
+    "list-base-ids": "bun scripts/list-base-ids.ts",
+    "import-variant": "bun scripts/import-variant.ts"
   },
   "dependencies": {
     "bulma": "^1.0.4",

@@ -2,8 +2,10 @@
 import ResumeContent from './components/ResumeContent.vue'
 import LanguageSwitcher from './components/LanguageSwitcher.vue'
 import { useLocale } from '@/composables/useLocale'
+import { hasVariant } from '@/composables/useVariant'
 
 const { t } = useLocale()
+const variantActive = hasVariant()
 
 const printResume = () => {
   window.print()
@@ -13,7 +15,7 @@ const printResume = () => {
 <template>
   <div class="resume-wrapper">
     <div class="print-controls no-print">
-      <LanguageSwitcher />
+      <LanguageSwitcher v-if="!variantActive" />
       <button class="button is-black" @click="printResume">
         <span class="icon is-small">
           <i class="fas fa-print"></i>

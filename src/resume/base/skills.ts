@@ -1,16 +1,6 @@
-import { useLocalized } from '@/composables/useLocale'
+import type { Locale, SkillsData } from './types'
 
-interface SkillDescription {
-  title: string
-  items: string[]
-}
-
-interface SkillsData {
-  skills: Record<string, string[]>
-  skill_descriptions: SkillDescription[]
-}
-
-const data: Record<'ko' | 'en', SkillsData> = {
+export const skills: Record<Locale, SkillsData> = {
   ko: {
     skills: {
       '프로그래밍 언어': ['Python', 'Ruby', 'C/C++', 'Golang', 'Java', 'JavaScript'],
@@ -64,7 +54,7 @@ const data: Record<'ko' | 'en', SkillsData> = {
         title: 'Ruby on Rails / Ruby',
         items: [
           'Capable of building production-grade products with Ruby on Rails.',
-          'Write code with a clear understanding of Rails\' DRY principle and Convention over Configuration.',
+          "Write code with a clear understanding of Rails' DRY principle and Convention over Configuration.",
           'Shipped Ruby on Rails production services with hundreds of thousands of MAU.',
         ],
       },
@@ -95,8 +85,4 @@ const data: Record<'ko' | 'en', SkillsData> = {
       },
     ],
   },
-}
-
-export function useSkills() {
-  return useLocalized(data)
 }
