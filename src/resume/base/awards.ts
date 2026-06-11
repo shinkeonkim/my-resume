@@ -2,7 +2,7 @@ import type { Award, Locale } from './types'
 
 export const awards: Record<Locale, Award[]> = {
   ko: [
-    { name: '국민대학교 캡스톤디자인 금상', date: '2026.05', issuer: '국민대학교' },
+    { name: '국민대학교 캡스톤디자인 금상', date: '2026.06', issuer: '국민대학교' },
     { name: '멋쟁이사자처럼 10기 전체 해커톤 동상', date: '2022.08', issuer: '멋쟁이사자처럼' },
     { name: '롯데 x 멋쟁이사자처럼 연계 해커톤 동상', date: '2020.10', issuer: '멋쟁이사자처럼' },
     {
@@ -34,7 +34,7 @@ export const awards: Record<Locale, Award[]> = {
   en: [
     {
       name: 'Kookmin Univ. Capstone Design Gold Award',
-      date: '2026.05',
+      date: '2026.06',
       issuer: 'Kookmin University',
     },
     { name: 'LikeLion 10th Generation Hackathon — Bronze', date: '2022.08', issuer: 'LikeLion' },
