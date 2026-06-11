@@ -6,7 +6,7 @@ export const meta: ProjectMeta = {
     ko: '미핏 - AI 가상면접 훈련 플랫폼',
     en: 'MeFit — AI Virtual Interview Training Platform',
   },
-  period: '2025.03 ~ 2025.06',
+  period: '2026.03 ~ 2026.06',
   techStack: [
     'Django',
     'DRF',
