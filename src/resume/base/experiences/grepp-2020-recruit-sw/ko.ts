@@ -64,8 +64,8 @@ export const details: DetailItem[] = [
     subContents: [
       '코딩테스트 과제(skill_check_assignment) 도메인 신규 도입: 회사 어드민 / 필터 / 추가 영역 / 레이아웃 / 태그 / 태그 필터 / 반응형 레이아웃 (점진 출시)',
       '비즈니스 대회(competition) 시스템: 인덱스 / 상세 검색 / 등록 엑셀 다운로드 / 통계 지원',
-      '대회 V1 API 신설: 대회 상세 / 대회 지원 V1 / 리더보드 탭 / registration#destroy / 대회 참가 기업 bulk create 어드민',
-      '비즈니스 회원가입 form locale dropdown, 회사 정보 us 페이지 / 다국어 등 i18n 확장',
+      '대회 V1 API 신설: 대회 상세 / 대회 지원 V1 / 리더보드 탭 / 대회 참가 기업 bulk create 어드민',
+      '회사 정보 us 페이지 및 다국어 i18n 확장',
     ],
   },
   {
