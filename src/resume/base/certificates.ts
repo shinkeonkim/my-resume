@@ -2,7 +2,8 @@ import type { Certificate, Locale } from './types'
 
 export const certificates: Record<Locale, Certificate[]> = {
   ko: [
-    { name: 'AWS AIF (AWS Certified AI Practitioner)', date: '2026.07', issuer: 'Amazon Web Services' },
+    { name: 'AWS Certified Cloud Practitioner (CLF-C02)', date: '2026.07', issuer: 'Amazon Web Services' },
+    { name: 'AWS Certified AI Practitioner (AIF)', date: '2026.07', issuer: 'Amazon Web Services' },
     { name: '정보처리기사', date: '2025.09', issuer: '한국산업인력공단' },
     { name: 'ADsP', date: '2025.09', issuer: '한국데이터산업진흥원' },
     { name: '제한무선통신사', date: '2025.06', issuer: '한국방송통신전파진흥원' },
@@ -14,7 +15,12 @@ export const certificates: Record<Locale, Certificate[]> = {
   ],
   en: [
     {
-      name: 'AWS Certified AI Practitioner (AIF-C01)',
+      name: 'AWS Certified Cloud Practitioner (CLF-C02)',
+      date: '2026.07',
+      issuer: 'Amazon Web Services',
+    },
+    {
+      name: 'AWS Certified AI Practitioner (AIF)',
       date: '2026.07',
       issuer: 'Amazon Web Services',
     },
