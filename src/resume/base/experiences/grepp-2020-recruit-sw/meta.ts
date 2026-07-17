@@ -24,6 +24,7 @@ export const meta: ExperienceMeta = {
     'AWS Personalize',
     'ActionCable',
     'PostgreSQL',
+    'ElasticSearch',
     'Sidekiq',
     'ActiveAdmin',
     'RSpec',
