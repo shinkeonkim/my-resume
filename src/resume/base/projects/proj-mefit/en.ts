@@ -17,14 +17,14 @@ export const details: DetailItem[] = [
   {
     content: 'Self-hosted infrastructure on K3s with cost optimization',
     subContents: [
-      'Composed a 2-node K3s cluster on EC2 (nodepool isolation, RollingUpdate), saving ~$73/month versus an EKS control plane.',
+      'Composed a 2-node K3s cluster on EC2 (nodepool isolation, RollingUpdate) — self-hosted the control plane within a limited budget instead of using EKS.',
       'Introduced LiteLLM Proxy to centralize LLM calls across 6 pods with automatic OpenAI/Bedrock fallback.',
     ],
   },
   {
     content: 'Serverless video analysis pipeline and AI systems',
     subContents: [
-      'Designed an S3 → SNS fan-out → 3 SQS → Lambda 4+1 (video/frame/audio/face/voice) processing pipeline and shared common modules through a Lambda Layer.',
+      'Designed an S3 → SNS fan-out → 3 SQS → Lambda-based video processing pipeline and shared common modules through a Lambda Layer.',
       'Parallelized resume analysis to reach 30–60 seconds per resume at ~$0.006 each, streaming live progress through SSE.',
     ],
   },

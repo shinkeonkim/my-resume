@@ -16,14 +16,14 @@ export const details: DetailItem[] = [
   {
     content: 'K3s 기반 자체 호스팅 인프라 및 비용 최적화',
     subContents: [
-      'EC2 위 K3s 2노드 클러스터(nodepool 분리, RollingUpdate) 구성으로 EKS 대비 컨트롤 플레인 월 ~$73 절감',
+      'EC2 위 K3s 2노드 클러스터(nodepool 분리, RollingUpdate) 구성으로 EKS 대신 제한된 비용 내 자체 컨트롤 플레인 운영',
       'LiteLLM Proxy 도입으로 6개 Pod의 LLM 호출을 중앙화하고 OpenAI/Bedrock 자동 폴백',
     ],
   },
   {
     content: '서버리스 영상 분석 파이프라인 및 AI 시스템 구축',
     subContents: [
-      'S3 → SNS fan-out → 3 SQS → Lambda 4+1개(video/frame/audio/face/voice) 영상 처리 파이프라인 설계 및 Lambda Layer 공통 모듈화',
+      'S3 → SNS fan-out → 3개의 SQS → Lambda 기반 영상 처리 파이프라인 설계 및 Lambda Layer 공통 모듈화',
       '이력서 분석을 병렬 처리하여 처리 시간 30-60초 / 이력서 개당 분석 비용 $0.006 달성 / SSE로 실시간 진행 상황 스트리밍',
     ],
   },
