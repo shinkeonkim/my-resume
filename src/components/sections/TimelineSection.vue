@@ -126,18 +126,17 @@ const years = computed(() => {
   position: relative;
   width: 100%;
   overflow-x: auto;
-  font-size: 0.8rem;
-  padding-bottom: 2rem;
+  font-size: 0.75rem;
   background-color: #f9f9f9; /* Very light grey as requested */
-  padding: 1rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 4px;
 }
 
 .years-axis {
   position: relative;
-  height: 1.5rem;
+  height: 1rem;
   border-bottom: 1px solid #7a7a7a;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   min-width: 600px; /* Force minimum width to prevent squashing */
 }
 
@@ -162,7 +161,7 @@ const years = computed(() => {
 
 .bars-container {
   position: relative;
-  padding-top: 0.5rem;
+  padding-top: 0.25rem;
   overflow-x: auto;
 }
 
@@ -173,7 +172,7 @@ const years = computed(() => {
 
 .gantt-row {
   position: relative;
-  height: 1.6rem;
+  height: 1.15rem;
 }
 
 .row-track {
@@ -189,17 +188,17 @@ const years = computed(() => {
 }
 
 .bar {
-  height: 70%;
-  border-radius: 4px;
+  height: 80%;
+  border-radius: 3px;
   background-color: #dbdbdb;
   display: flex;
   align-items: center;
-  padding: 0 0.5rem;
+  padding: 0 0.4rem;
   white-space: nowrap;
   overflow: visible;
   color: #fff;
   font-weight: bold; /* Keep bold white text */
-  font-size: 0.75rem;
+  font-size: 0.7rem;
 }
 
 .bar-label {

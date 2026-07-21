@@ -2,50 +2,54 @@ import type { DetailItem } from '../../types'
 
 export const details: DetailItem[] = [
   {
-    content: '<strong>KDT Competency Diagnostic Report — Sole Backend Owner</strong>',
+    content: 'KDT Competency Diagnostic Report — Sole Backend Owner',
     period: '2024.07 ~ 2025.02',
+    impact: 'Sole backend owner (6 months) · PM/planning/design/QA collaboration',
     subContents: [
-      'Solely owned the Ruby on Rails + ActiveAdmin backend for ~6 months, collaborating with PM, planning, design, and QA.',
-      'Designed the full flow (grading worker → concern → normalized scoring → report generation / notification / view tracking) and shipped in 5 staged releases.',
-      'Deprecated v1 domain model and redesigned v2 (Course ↔ CompetencyStandard ↔ CompetencyReport), rolled over via feature flag + per-course enablement column with zero downtime.',
-      'Delegated percentile ranking to PostgreSQL window functions instead of Ruby array sorting; drove seq scan → bitmap index scan transitions for daily batch jobs via EXPLAIN-based tuning.',
-      'Chose N+1 tactics per relationship shape (JOIN preload / deferred preload / ID comparison) and enforced it through code review.',
+      'Designed the full pipeline (grading → normalized scoring → report/notification) and shipped in staged releases',
+      'Delegated percentile ranking to PostgreSQL window functions instead of Ruby array sorting; drove seq scan → bitmap index scan for batch jobs',
     ],
   },
   {
-    content: '<strong>Wanted KDT (wantedlms) Multi-tenant Branching</strong>',
+    content: 'Wanted KDT (wantedlms) Multi-tenant Branching',
     period: '2024.07 ~ 2024.11',
+    impact:
+      'Multi-tenant operation from a single codebase · preserved shared-maintenance atomicity vs. fork alternative',
     subContents: [
-      "Branched the same codebase to operate Wanted's KDT LMS alongside Programmers as multi-tenant deployments.",
-      'Toggled features per environment via YAML settings — a separate-repo fork would have been cheap up front but expensive per shared update; single codebase + env separation preserves shared-maintenance atomicity.',
+      'Toggled Programmers/wantedlms features per environment via YAML settings',
+      'Avoided repository-fork cost by keeping one codebase with environment separation',
     ],
   },
   {
-    content: '<strong>Programmers Project LMS V1 API Rollout + Service Object Refactor</strong>',
+    content: 'Programmers Project LMS V1 API + Service Object Refactor',
     period: '2024.08 ~ 2025.02',
+    impact:
+      'Replaced legacy with domain-specific V1 APIs · extracted service objects · eased hand-off',
     subContents: [
-      'Replaced legacy /api/school/* with domain-specific /api/v1/lms/* APIs (boards / notifications / learning activities / history); split the legacy school domain into lms / learn for easier hand-off.',
-      'Unified error responses (single error string → code + message object) to simplify frontend parsing logic.',
-      'Extracted certificate issuance and student re-invitation into service objects and added an admin bulk re-invitation feature.',
-      'Landed apipie-based API documentation inside every feature PR and extracted shared response fragments into reusable Definitions modules.',
+      'Legacy /api/school/* → domain-specific /api/v1/lms/*, split school domain into lms/learn for easier hand-off',
+      'Unified error response schema (single error string → code + message object) to simplify frontend parsing',
+      'Extracted certificate issuance / student re-invitation as service objects + added admin bulk re-invite feature',
+      'Landed apipie-based API documentation inside every feature PR and extracted shared responses into reusable Definitions modules',
     ],
   },
   {
-    content: '<strong>Company-wide PR Review Notification Bot Expansion (1 → 4 teams)</strong>',
+    content: 'Company-wide PR Review Notification Bot Expansion',
     period: '2024.07 ~ 2024.08',
+    impact:
+      'Generalized a single-team tool to <strong>4 teams</strong> · inherited and modernized in-house automation',
     subContents: [
-      'Inherited a legacy in-house tool (Python · slack_sdk · PyGithub · GitHub Actions cron) and generalized it from one team to four.',
-      "Removed hard-coded member info by dynamically resolving Slack user groups + members' GitHub Username profile field.",
-      "Auto-computed D-Day from a 'Desired review completion date' field in PR descriptions and posted a daily 10:00 (weekdays) Slack alert per team channel.",
+      "Replaced hard-coded member info by dynamically resolving Slack user groups API + members' GitHub Username profile field",
+      "Auto-computed D-Day from PR 'desired review completion date' text → weekday 10:00 Slack alerts per team channel",
     ],
   },
   {
-    content: '<strong>Programmers School / Campus LMS Maintenance and New Features</strong>',
+    content: 'Programmers School / Campus LMS Maintenance & Feature Work',
     period: '2024.07 ~ 2025.03',
+    impact: 'Root-caused LMS operational issues + fixed alongside regression specs',
     subContents: [
-      'Maintained the Ruby on Rails + Django-based LMS and shipped continuous feature improvements.',
-      'Tracked Sentry / Slack-reported issues down to root cause and fixed them alongside regression specs.',
-      'Resolved an admin search bug from a column-name mismatch via application-layer alias_attribute instead of renaming the column, avoiding migration downtime risk.',
+      'Traced Sentry/Slack-reported issues to root cause and shipped fixes with regression coverage',
+      'Resolved admin search column-name mismatch via alias_attribute instead of renaming — avoided migration downtime',
+      'Final 2025.01–02 hand-off work: refactored school → lms/learn domain split, clarifying domain boundaries for hand-off',
     ],
   },
 ]

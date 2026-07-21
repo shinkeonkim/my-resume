@@ -8,7 +8,7 @@ export const details: DetailItem[] = [
     content: 'Distributed architecture and AI report system',
     subContents: [
       'Built an asynchronous pipeline on Celery for heavy work such as AI focus-analysis report generation and email delivery.',
-      'Implemented automated, gameplay-driven personalized study advice via LLM (Large Language Model) integration.',
+      'Implemented automated, gameplay-driven personalized study advice via LLM integration.',
       'Set up static analysis with Ruff and MyPy on GitHub Actions and automated backend test coverage measurement.',
     ],
   },

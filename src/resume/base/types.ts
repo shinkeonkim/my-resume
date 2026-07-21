@@ -21,6 +21,8 @@ export interface TimelineItem {
 export interface DetailItem {
   content: string
   period?: string
+  impact?: string
+  techStack?: string[]
   subContents?: string[]
 }
 

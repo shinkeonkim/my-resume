@@ -17,8 +17,12 @@ export const meta: ExperienceMeta = {
     'Sidekiq',
     'PostgreSQL',
     'RSpec',
+    'apipie',
     'Python',
+    'slack_sdk',
+    'PyGithub',
     'GitHub Actions',
     'Django',
+    'Sentry',
   ],
 }

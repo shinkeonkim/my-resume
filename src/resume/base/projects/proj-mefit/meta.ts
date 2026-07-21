@@ -33,4 +33,7 @@ export const meta: ProjectMeta = {
     'MediaPipe',
     'opencode',
   ],
+  links: [
+    { icon: 'fab fa-github', url: 'https://github.com/kmu-aws-capstone-team-4/' },
+  ],
 }

@@ -15,13 +15,14 @@ defineProps<{
   background-color: #f8f8f8;
   color: #7a7a7a;
   border: 1px solid #e8e8e8;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 500;
-  margin-right: 0.4rem;
-  margin-bottom: 0.4rem;
-  padding: 0.1rem 0.4rem;
-  border-radius: 4px;
+  margin-right: 0.2rem;
+  margin-bottom: 0.15rem;
+  padding: 0.05rem 0.35rem;
+  border-radius: 3px;
   height: auto;
+  line-height: 1.3;
 }
 
 @media screen and (max-width: 768px) {

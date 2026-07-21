@@ -5,8 +5,8 @@ defineProps<{
 </script>
 
 <template>
-  <section class="resume-section pb-2">
-    <h2 class="section-title title is-4 has-text-weight-bold mb-3 mt-3">
+  <section class="resume-section">
+    <h2 class="section-title title is-5 has-text-weight-bold">
       <span class="title-text">{{ title }}</span>
     </h2>
     <div class="section-content is-small">
@@ -18,13 +18,20 @@ defineProps<{
 <style scoped>
 .resume-section {
   position: relative;
+  padding-bottom: 0.15rem;
 }
 
 .section-title {
-  border-bottom: 2px solid #dbdbdb;
-  padding-bottom: 0.5rem;
+  border-bottom: 1.5px solid #dbdbdb;
+  padding-bottom: 0.15rem;
   color: #363636;
-  line-height: 1.2;
+  line-height: 1.15;
+  font-size: 1.1rem;
+  margin: 0.6rem 0 0.35rem !important;
+}
+
+.resume-section:first-child .section-title {
+  margin-top: 0 !important;
 }
 
 .title-text {

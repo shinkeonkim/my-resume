@@ -29,11 +29,12 @@ export const details: DetailItem[] = [
     ],
   },
   {
-    content: 'PM responsibilities and technical decision leadership',
+    content: 'RDS Connection Exhaustion — Diagnosis & Resolution (App + Infra)',
     subContents: [
-      'Led a 4-person team as PM, distributing ownership across 12 monorepo sub-projects and driving 9 key technical decisions (Django vs FastAPI, k3s vs k8s, edge-tts vs paid TTS, etc.).',
-      'Designed the business model (Free/Premium subscriptions + single-use tickets).',
-      'Responded to operational incidents such as RDS connection pool exhaustion and established a Slack alert-based incident response process.',
+      '<strong>Symptom + Diagnosis:</strong> API latency → timeout outage. Traced an RDS connection surge from CloudWatch metrics/logs and identified root causes on both app and infra sides.',
+      "<strong>App root causes:</strong> (1) Celery workers do not emit Django's request_started/finished signals, so close_old_connections() is never called and idle connections accumulate; (2) the analysis microservice had no SQLAlchemy pool configuration.",
+      '<strong>Code fixes:</strong> closed inherited connections in worker_process_init after fork; added close_old_connections() signal handlers on task_prerun/postrun; pinned SQLAlchemy pool_size · max_overflow · pool_recycle.',
+      '<strong>Infra fixes:</strong> set RDS idle_session_timeout=15min as a server-side safety net; wired CloudWatch DatabaseConnections two-tier alarm → Slack alerts to prevent recurrence.',
     ],
   },
 ]

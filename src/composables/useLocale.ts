@@ -20,7 +20,7 @@ const detectInitialLocale = (): Locale => {
 
 const currentLocale = ref<Locale>(detectInitialLocale())
 
-const messages: Record<Locale, Record<string, string>> = {
+export const messages: Record<Locale, Record<string, string>> = {
   ko: {
     'app.print': '인쇄 / PDF',
     'app.language': '언어',
@@ -30,7 +30,7 @@ const messages: Record<Locale, Record<string, string>> = {
     'section.skills': '기술 스택',
     'section.workExperiences': '경력',
     'section.projects': '프로젝트',
-    'section.activities': '활동',
+    'section.activities': '학력 & 활동',
     'section.awards': '수상',
     'section.certificates': '자격증',
     'document.title': '이력서 - 김신건',
@@ -44,7 +44,7 @@ const messages: Record<Locale, Record<string, string>> = {
     'section.skills': 'Skills',
     'section.workExperiences': 'Work Experiences',
     'section.projects': 'Projects',
-    'section.activities': 'Activities',
+    'section.activities': 'Education & Activities',
     'section.awards': 'Awards',
     'section.certificates': 'Certificates',
     'document.title': 'Resume - Shinkeon Kim',

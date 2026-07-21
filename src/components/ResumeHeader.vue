@@ -2,35 +2,28 @@
 import { computed } from 'vue'
 import { useLocalized } from '@/composables/useLocale'
 import { useHeadline } from '@/composables/useResumeData'
+import { profileText as profileTextData, profileContact } from '@/resume/base/profile'
 
-interface ProfileText {
-  name: string
-  role: string
-}
-
-const profileText = useLocalized<ProfileText>({
-  ko: { name: '김신건', role: 'SW 엔지니어' },
-  en: { name: 'Shinkeon Kim', role: 'SW Engineer' },
-})
+const profileText = useLocalized(profileTextData)
 
 const headlineOverride = useHeadline()
 
 const profile = computed(() => ({
   name: profileText.value.name,
   role: headlineOverride.value ?? profileText.value.role,
-  email: 'dev.shinkeonkim@gmail.com',
-  github: 'https://github.com/shinkeonkim',
-  portfolio: 'https://shinkeonkim.github.io/my-portfolio/',
-  website: 'https://shinkeonkim.com',
-  linkedin: 'https://www.linkedin.com/in/shinkeonkim',
+  email: profileContact.email,
+  github: profileContact.github,
+  portfolio: profileContact.portfolio,
+  website: profileContact.website,
+  linkedin: profileContact.linkedin,
 }))
 </script>
 
 <template>
-  <header class="resume-header mb-5">
+  <header class="resume-header mb-3">
     <div class="columns is-vcentered">
       <div class="column is-narrow has-text-centered-mobile">
-        <figure class="image is-128x128 photo-container is-inline-block-mobile">
+        <figure class="image is-96x96 photo-container is-inline-block-mobile">
           <img
             src="@/assets/shinkeonkim.jpg"
             alt="Profile Photo"
@@ -40,11 +33,11 @@ const profile = computed(() => ({
       </div>
 
       <div class="column has-text-centered-mobile">
-        <h1 class="title is-2 is-size-3-mobile mb-1 has-text-black">{{ profile.name }}</h1>
-        <h2 class="subtitle is-4 is-size-5-mobile has-text-black mb-3">{{ profile.role }}</h2>
+        <h1 class="title is-3 is-size-3-mobile mb-1 has-text-black">{{ profile.name }}</h1>
+        <h2 class="subtitle is-5 is-size-5-mobile has-text-black mb-2">{{ profile.role }}</h2>
 
-        <div class="contact-info is-small is-size-6-mobile is-flex is-flex-direction-column is-align-items-flex-start-tablet is-align-items-center-mobile">
-          <div class="contact-item mb-1">
+        <div class="contact-info is-small is-size-6-mobile">
+          <div class="contact-item">
             <a
               :href="'mailto:' + profile.email"
               class="icon-text has-text-black is-flex is-align-items-center"
@@ -53,7 +46,7 @@ const profile = computed(() => ({
               <span class="url-text">{{ profile.email }}</span>
             </a>
           </div>
-          <div class="contact-item mb-1">
+          <div class="contact-item">
             <a
               :href="profile.github"
               target="_blank"
@@ -63,7 +56,7 @@ const profile = computed(() => ({
               <span class="url-text">{{ profile.github }}</span>
             </a>
           </div>
-          <div class="contact-item mb-1">
+          <div class="contact-item">
             <a
               :href="profile.portfolio"
               target="_blank"
@@ -73,7 +66,7 @@ const profile = computed(() => ({
               <span class="url-text">{{ profile.portfolio }}</span>
             </a>
           </div>
-          <div class="contact-item mb-1">
+          <div class="contact-item">
             <a
               :href="profile.linkedin"
               target="_blank"
@@ -83,7 +76,7 @@ const profile = computed(() => ({
               <span class="url-text">{{ profile.linkedin }}</span>
             </a>
           </div>
-          <div class="contact-item mb-1">
+          <div class="contact-item">
             <a
               :href="profile.website"
               target="_blank"
@@ -100,8 +93,26 @@ const profile = computed(() => ({
 </template>
 
 <style scoped>
+.contact-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1.25rem;
+  row-gap: 0.15rem;
+  align-items: center;
+}
+.contact-item {
+  line-height: 1.35;
+}
 .url-text {
   word-break: break-all;
   overflow-wrap: break-word;
+  font-size: 0.82rem;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-info {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 }
 </style>

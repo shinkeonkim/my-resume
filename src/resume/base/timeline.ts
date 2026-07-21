@@ -1,19 +1,12 @@
 import type { Locale, TimelineItem } from './types'
 
-const minDate = new Date('2016-01-01')
+const minDate = new Date('2019-01-01')
 const maxDate = new Date('2026-12-31')
 
 export const timelineRange = { minDate, maxDate }
 
 export const timelineItems: Record<Locale, TimelineItem[]> = {
   ko: [
-    {
-      id: 1,
-      name: '한민고등학교',
-      type: 'school',
-      paddingLeft: 0,
-      segments: [{ start: '2016.03', end: '2019.02' }],
-    },
     {
       id: 2,
       name: '국민대학교',
@@ -28,7 +21,7 @@ export const timelineItems: Record<Locale, TimelineItem[]> = {
       id: 3,
       name: '(주) 그렙',
       type: 'career',
-      paddingLeft: 100,
+      paddingLeft: 130,
       segments: [
         { start: '2019.06', end: '2019.08' },
         { start: '2019.12', end: '2020.02' },
@@ -44,32 +37,8 @@ export const timelineItems: Record<Locale, TimelineItem[]> = {
       paddingLeft: 0,
       segments: [{ start: '2022.11', end: '2024.05' }],
     },
-    {
-      id: 10,
-      name: '국민대학교 멋쟁이사자처럼',
-      type: 'activity',
-      paddingLeft: 0,
-      segments: [
-        { start: '2020.03', end: '2022.12' },
-        { start: '2024.01', end: '2025.12' },
-      ],
-    },
-    {
-      id: 11,
-      name: 'SIPE 4기',
-      type: 'activity',
-      paddingLeft: 0,
-      segments: [{ start: '2025.04', end: '2025.08' }],
-    },
   ],
   en: [
-    {
-      id: 1,
-      name: 'Hanmin High School',
-      type: 'school',
-      paddingLeft: 0,
-      segments: [{ start: '2016.03', end: '2019.02' }],
-    },
     {
       id: 2,
       name: 'Kookmin University',
@@ -99,23 +68,6 @@ export const timelineItems: Record<Locale, TimelineItem[]> = {
       type: 'career',
       paddingLeft: 0,
       segments: [{ start: '2022.11', end: '2024.05' }],
-    },
-    {
-      id: 10,
-      name: 'LikeLion at Kookmin Univ.',
-      type: 'activity',
-      paddingLeft: 0,
-      segments: [
-        { start: '2020.03', end: '2022.12' },
-        { start: '2024.01', end: '2025.12' },
-      ],
-    },
-    {
-      id: 11,
-      name: 'SIPE 4th',
-      type: 'activity',
-      paddingLeft: 0,
-      segments: [{ start: '2025.04', end: '2025.08' }],
     },
   ],
 }

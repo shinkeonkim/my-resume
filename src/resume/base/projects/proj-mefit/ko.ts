@@ -28,11 +28,12 @@ export const details: DetailItem[] = [
     ],
   },
   {
-    content: 'PM 역할 및 기술 의사결정 주도',
+    content: 'RDS 커넥션 고갈 문제 진단·해결 (앱 + 인프라)',
     subContents: [
-      '4인 팀 PM으로 모노레포 12개 서브 프로젝트 책임 분배 및 9건의 핵심 기술 의사결정 리드 (Django vs FastAPI, k3s vs k8s, edge-tts vs 유료 TTS 등)',
-      '비즈니스 모델(Free/Premium 구독 + 1회성 티켓) 설계',
-      'RDS 커넥션 풀 고갈 등 운영 인시던트 대응 및 Slack 알림 기반 인시던트 대응 체계 수립',
+      '<strong>증상 + 진단:</strong> API 지연 → 타임아웃 장애 발생. CloudWatch 메트릭/로그에서 RDS 커넥션 수 이상 급증 확인, 앱·인프라 양쪽에 원인 있음을 추적',
+      '<strong>앱 근본 원인:</strong> (1) Celery 워커가 Django의 request_started/finished 시그널을 발생시키지 않아 close_old_connections() 미호출로 유휴 커넥션 누적, (2) 분석 마이크로서비스의 SQLAlchemy 풀 설정 부재',
+      '<strong>코드 조치:</strong> worker_process_init에서 fork 직후 부모 상속 커넥션 close, task_prerun/postrun에 close_old_connections() 시그널 핸들러 추가, SQLAlchemy pool_size·max_overflow·pool_recycle 고정',
+      '<strong>인프라 조치:</strong> RDS idle_session_timeout=15분 서버측 안전장치 지정, CloudWatch DatabaseConnections 2단계 알람 → Slack 알림으로 재발 방지',
     ],
   },
 ]

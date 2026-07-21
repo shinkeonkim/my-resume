@@ -10,12 +10,10 @@ const experiences = useExperiences()
 
 <template>
   <ResumeSectionLayout :title="t('section.workExperiences')">
-    <div v-for="(experience, index) in experiences" :key="index" class="company-block mb-5">
-      <h3 class="title is-5 is-size-6-mobile mb-3 has-text-black has-text-weight-bold">
-        {{ experience.name }}
-      </h3>
+    <div v-for="(experience, index) in experiences" :key="index" class="company-block">
+      <h3 class="company-name">{{ experience.name }}</h3>
 
-      <div class="experience-items-list">
+      <div class="roles-list">
         <ExperienceItem
           v-for="(role, rIndex) in experience.roles"
           :key="rIndex"
@@ -30,24 +28,33 @@ const experiences = useExperiences()
 </template>
 
 <style scoped>
-.experience-items-list {
-  padding-top: 0.2rem;
+.company-block {
+  margin-bottom: 1.1rem;
+}
+
+.company-block:last-child {
+  margin-bottom: 0;
+}
+
+.company-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0a0a0a;
+  margin: 0.4rem 0 0.2rem;
+  line-height: 1.2;
+}
+
+.company-block:first-child > .company-name {
+  margin-top: 0;
+}
+
+.roles-list {
+  padding-top: 0.15rem;
 }
 
 @media screen and (max-width: 768px) {
-  .experience-items-list {
-    margin-left: 0;
-  }
-}
-
-.experience-items-list :deep(.experience-item-title) {
-  /* Shrink role titles to is-6 equivalent */
-  font-size: 1rem;
-}
-
-@media screen and (max-width: 768px) {
-  .experience-items-list :deep(.experience-item-title) {
-    font-size: 0.9rem; /* is-7 equivalent */
+  .company-name {
+    font-size: 0.92rem;
   }
 }
 </style>

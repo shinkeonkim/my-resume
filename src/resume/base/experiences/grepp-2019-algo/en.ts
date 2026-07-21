@@ -2,13 +2,14 @@ import type { DetailItem } from '../../types'
 
 export const details: DetailItem[] = [
   {
-    content: '<strong>Programmers Algorithm Authoring / Review / Workflow Automation</strong>',
+    content: 'Programmers Algorithm Authoring / Review / Workflow Automation',
+    period: '2019.06 ~ 2020.08 (3 internships)',
+    impact:
+      'Expanded scope across 3 internships: authoring → review → automation tooling in parallel',
     subContents: [
-      'Authored algorithm problems across a wide range of difficulty levels and types and reviewed them for correctness and quality.',
-      'Cross-checked similar problems on other services for duplication.',
-      'Established the authoring workflow: author → review → feedback → revise → final review → publish.',
-      'Built automation tools for recurring work (random-word-driven ideation, problem templates, randomized test case generation).',
-      'Expanded responsibilities across three internships: initial authoring → review → automation tooling, then authoring, review, and tooling in parallel by the final term.',
+      'Authored algorithm problems across varied difficulty/type and reviewed for correctness/quality (including cross-service duplication checks)',
+      'Established authoring workflow: author → review → feedback → revise → final review → publish',
+      'Built automation tooling for recurring work (random-word ideation, problem templates, randomized test case generation)',
     ],
   },
 ]

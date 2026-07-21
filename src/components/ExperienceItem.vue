@@ -1,12 +1,6 @@
 <script setup lang="ts">
 import TechnicalStackTag from './TechnicalStackTag.vue'
-import type { LinkItem } from '@/resume/base/types'
-
-interface DetailItem {
-  content: string
-  period?: string
-  subContents?: string[]
-}
+import type { DetailItem, LinkItem } from '@/resume/base/types'
 
 defineProps<{
   title: string
@@ -15,49 +9,60 @@ defineProps<{
   details?: DetailItem[]
   links?: LinkItem[]
 }>()
+
+const isProjectCard = (d: DetailItem): boolean => Boolean(d.impact)
 </script>
 
 <template>
-  <div class="experience-item mb-5">
-    <div class="columns is-gapless mb-2">
-      <div class="column pb-0">
-        <h3 class="experience-item-title title mb-0 has-text-black has-text-weight-bold">
-          {{ title }}
-        </h3>
-      </div>
-      <div class="column is-narrow has-text-right-tablet">
-        <span class="is-size-7 has-text-grey">{{ period }}</span>
-      </div>
+  <div class="experience-item">
+    <div class="item-header">
+      <h3 class="item-title" v-html="title"></h3>
+      <span v-if="period" class="item-period">{{ period }}</span>
     </div>
 
-    <div v-if="techStack && techStack.length" class="tags mb-1">
+    <div v-if="techStack && techStack.length" class="role-tags">
       <TechnicalStackTag v-for="tech in techStack" :key="tech" :name="tech" />
     </div>
 
-    <div v-if="details && details.length" class="content is-small mb-2">
-      <ul class="detail-list">
-        <li v-for="(detail, index) in details" :key="index" class="detail-item">
-          <div class="detail-header">
+    <div v-if="details && details.length" class="details">
+      <template v-for="(detail, index) in details" :key="index">
+        <article v-if="isProjectCard(detail)" class="project-card">
+          <header class="project-header">
+            <h4 class="project-title" v-html="detail.content"></h4>
+            <span v-if="detail.period" class="project-period">{{ detail.period }}</span>
+          </header>
+          <p v-if="detail.impact" class="project-impact" v-html="detail.impact"></p>
+          <ul
+            v-if="detail.subContents && detail.subContents.length"
+            class="project-subs"
+          >
+            <li
+              v-for="(sub, sIdx) in detail.subContents"
+              :key="sIdx"
+              v-html="sub"
+            ></li>
+          </ul>
+        </article>
+
+        <div v-else class="plain-detail">
+          <div class="plain-header">
             <span v-html="detail.content"></span>
-            <span v-if="detail.period" class="has-text-grey-light is-size-7 ml-1-tablet"
-              >({{ detail.period }})</span
-            >
+            <span v-if="detail.period" class="plain-period"> ({{ detail.period }})</span>
           </div>
           <ul
             v-if="detail.subContents && detail.subContents.length"
-            class="ml-4 mt-1"
-            style="list-style-type: circle"
+            class="plain-subs"
           >
-            <li v-for="(sub, sIdx) in detail.subContents" :key="sIdx" class="mb-0">
+            <li v-for="(sub, sIdx) in detail.subContents" :key="sIdx">
               <span v-html="sub"></span>
             </li>
           </ul>
-        </li>
-      </ul>
+        </div>
+      </template>
     </div>
 
-    <div v-if="links && links.length" class="project-links mt-2">
-      <div v-for="link in links" :key="link.url" class="mb-1">
+    <div v-if="links && links.length" class="links">
+      <div v-for="link in links" :key="link.url">
         <a
           :href="link.url"
           target="_blank"
@@ -78,42 +83,170 @@ defineProps<{
 
 <style scoped>
 .experience-item {
-  margin-bottom: 2rem;
+  margin-bottom: 0.9rem;
 }
 
-.experience-item-title {
-  /* Default standardized size: is-5 */
-  font-size: 1.25rem;
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.15rem;
 }
 
-@media screen and (max-width: 768px) {
-  .experience-item-title {
-    font-size: 1rem; /* corresponds to is-size-6 */
-  }
+.item-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #363636;
+  margin: 0;
+  line-height: 1.25;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
-.detail-list {
-  margin-top: 0.5rem;
-  margin-left: 1.5rem;
+.item-period {
+  font-size: 0.72rem;
+  color: #7a7a7a;
+  white-space: nowrap;
+  flex: 0 0 auto;
 }
 
-@media screen and (max-width: 768px) {
-  .detail-list {
-    margin-left: 1rem;
-  }
-}
-
-.detail-header {
-  line-height: 1.4;
-}
-
-@media screen and (min-width: 769px) {
-  .ml-1-tablet {
-    margin-left: 0.5rem !important;
-  }
-}
-
-.tags {
+.role-tags {
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card {
+  padding: 0.5rem 0 0.5rem 0;
+  border-top: 1px solid #ececec;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.project-card:first-child {
+  border-top: none;
+  padding-top: 0.1rem;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.1rem;
+}
+
+.project-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0a0a0a;
+  margin: 0;
+  line-height: 1.25;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.project-period {
+  font-size: 0.72rem;
+  color: #7a7a7a;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  line-height: 1.2;
+}
+
+.project-impact {
+  font-size: 0.82rem;
+  color: #363636;
+  line-height: 1.3;
+  margin: 0 0 0.15rem 0;
+}
+
+.project-impact :deep(strong) {
+  color: #0a0a0a;
+  font-weight: 600;
+}
+
+.project-subs {
+  margin: 0.05rem 0 0 1.1rem !important;
+  padding: 0;
+  list-style: disc;
+  line-height: 1.3;
+  color: #4a4a4a;
+  font-size: 0.82rem;
+}
+
+.project-subs li {
+  margin-bottom: 0.05rem;
+}
+
+.project-subs :deep(strong) {
+  color: #0a0a0a;
+  font-weight: 600;
+}
+
+.plain-detail {
+  padding-left: 1.1rem;
+  position: relative;
+  line-height: 1.5;
+  font-size: 0.82rem;
+  margin-bottom: 0.2rem;
+}
+
+.plain-detail:last-child {
+  margin-bottom: 0;
+}
+
+.plain-detail::before {
+  content: '•';
+  position: absolute;
+  left: 0.3rem;
+  color: #4a4a4a;
+  line-height: 1.3;
+}
+
+.plain-header {
+  line-height: 1.3;
+}
+
+.plain-period {
+  color: #b5b5b5;
+  font-size: 0.72rem;
+}
+
+.plain-subs {
+  margin: 0.05rem 0 0.05rem 1rem !important;
+  padding-top: 0 !important;
+  list-style: circle;
+  line-height: 1.3;
+  font-size: 0.82rem;
+}
+
+.plain-subs li {
+  margin-bottom: 0 !important;
+}
+
+.plain-subs :deep(strong) {
+  color: #0a0a0a;
+  font-weight: 600;
+}
+
+.links {
+  margin-top: 0.35rem;
+}
+
+@media screen and (max-width: 768px) {
+  .item-title {
+    font-size: 0.88rem;
+  }
+  .project-title {
+    font-size: 0.82rem;
+  }
 }
 </style>

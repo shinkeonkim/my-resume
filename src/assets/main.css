@@ -11,7 +11,7 @@
   --a4-width: 210mm;
   --a4-min-height: 297mm;
   --bulma-text-strong: #0a0a0a; /* Force strong text to be black/very dark */
-  --bulma-size-small: 0.9rem;
+  --bulma-size-small: 0.82rem;
   --resume-bg: #525659;
 }
 
@@ -60,7 +60,7 @@ body {
 /* Override Bulma strong text explicitly if var doesn't catch all */
 strong {
   color: #0a0a0a !important;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 /* Print controls */
@@ -70,7 +70,7 @@ strong {
 
 @page {
   size: A4;
-  margin: 15mm 20mm; /* Global margin for EVERY page */
+  margin: 12mm 17mm; /* Global margin for EVERY page */
 }
 
 @media print {
@@ -131,6 +131,5 @@ strong {
   .page-break {
     break-before: page;
     page-break-before: always; /* Legacy support */
-    padding-top: 2rem; /* Add margin at the top of the new page */
   }
 }
