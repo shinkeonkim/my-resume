@@ -13,16 +13,12 @@ export const meta: ExperienceMeta = {
   period: '2024.07 ~ 2025.03',
   techStack: [
     'Ruby on Rails',
-    'ActiveAdmin',
+    'Django',
     'Sidekiq',
     'PostgreSQL',
+    'ActiveAdmin',
     'RSpec',
-    'apipie',
-    'Python',
-    'slack_sdk',
-    'PyGithub',
     'GitHub Actions',
-    'Django',
     'Sentry',
   ],
 }
