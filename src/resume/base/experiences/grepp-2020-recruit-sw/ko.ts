@@ -16,7 +16,7 @@ export const details: DetailItem[] = [
     content: '전사 본인인증 프로젝트 신규 구축 + 프로그래머스 프로젝트 통합',
     period: '2022.07 ~ 2022.09',
     impact:
-      '사내 공용 인증 서비스 신규 구축 · 서비스별 NICE 통합 부담 제거 · 회사 첫 Container Image Lambda 도입',
+      '사내 공용 인증 서비스 신규 구축 · 서비스별 NICE 통합 부담 제거',
     subContents: [
       'Python · Flask · AWS Lambda (Container Image) · API Gateway · DynamoDB · Terraform · Terragrunt 기반, 3개 환경 (alpha/beta/production) 별 디렉토리 분리',
       'DynamoDB 단일 테이블 (token_version_id HASH + TTL) 로 만료 키 자동 제거, RDBMS + cron 대안 대비 운영 요소 최소화',
