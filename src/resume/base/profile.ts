@@ -10,7 +10,7 @@ export interface ProfileContact {
   github: string
   portfolio: string
   linkedin: string
-  website: string
+  websites: string[]
 }
 
 export const profileText: Record<Locale, ProfileText> = {
@@ -23,5 +23,7 @@ export const profileContact: ProfileContact = {
   github: 'https://github.com/shinkeonkim',
   portfolio: 'https://shinkeonkim.github.io/my-portfolio/',
   linkedin: 'https://www.linkedin.com/in/shinkeonkim',
-  website: 'https://shinkeonkim.com',
+  websites: [
+    'https://shinkeonkim.com',
+  ],
 }
