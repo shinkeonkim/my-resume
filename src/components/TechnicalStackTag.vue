@@ -17,8 +17,6 @@ defineProps<{
   border: 1px solid #e8e8e8;
   font-size: 0.68rem;
   font-weight: 500;
-  margin-right: 0.2rem;
-  margin-bottom: 0.15rem;
   padding: 0.05rem 0.35rem;
   border-radius: 3px;
   height: auto;
@@ -29,8 +27,6 @@ defineProps<{
   .tech-stack-tag {
     font-size: 0.65rem;
     padding: 0.05rem 0.3rem;
-    margin-right: 0.25rem;
-    margin-bottom: 0.25rem;
   }
 }
 </style>

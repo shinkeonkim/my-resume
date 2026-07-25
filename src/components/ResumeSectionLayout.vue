@@ -1,6 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   title: string
+  subtitle?: string
 }>()
 </script>
 
@@ -8,6 +9,7 @@ defineProps<{
   <section class="resume-section">
     <h2 class="section-title title is-5 has-text-weight-bold">
       <span class="title-text">{{ title }}</span>
+      <span v-if="subtitle" class="section-subtitle">{{ subtitle }}</span>
     </h2>
     <div class="section-content is-small">
       <slot></slot>
@@ -28,6 +30,10 @@ defineProps<{
   line-height: 1.15;
   font-size: 1.1rem;
   margin: 0.6rem 0 0.35rem !important;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .resume-section:first-child .section-title {
@@ -38,6 +44,13 @@ defineProps<{
   display: inline-block;
 }
 
+.section-subtitle {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #7a7a7a;
+  letter-spacing: -0.01em;
+}
+
 @media screen and (max-width: 768px) {
   .resume-section {
     margin-bottom: 2rem !important;
@@ -45,6 +58,9 @@ defineProps<{
   .section-title {
     font-size: 1.15rem !important; /* Standardized for mobile */
     margin-bottom: 0.75rem !important;
+  }
+  .section-subtitle {
+    font-size: 0.78rem;
   }
 }
 </style>

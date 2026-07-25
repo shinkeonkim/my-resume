@@ -114,8 +114,8 @@ const isProjectCard = (d: DetailItem): boolean => Boolean(d.impact)
 .role-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.1rem;
-  margin-bottom: 0.3rem;
+  gap: 0.25rem 0.35rem;
+  margin-bottom: 0.35rem;
 }
 
 .details {

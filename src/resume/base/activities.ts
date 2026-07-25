@@ -6,20 +6,13 @@ export const activities: Record<Locale, Activity[]> = {
       title: '국민대학교 멋쟁이사자처럼',
       period: '2020.03 ~ 2025.12',
       details: [
-        { content: '<strong>13기 운영진</strong> (2025.01 ~ 2025.12)' },
-        { content: '<strong>12기 운영진</strong> (2024.01 ~ 2024.12)' },
-        { content: '<strong>10기 운영진</strong> (2022.01 ~ 2022.12)' },
         {
           content:
-            '<strong>9기 운영진 대표</strong> (2021.01 ~ 2021.12)<br>' +
-            '- 동아리 세션 진행 및 Git/Github 심화 강의<br>' +
-            '- Algorithm 스터디 운영<br>' +
-            '- 12개 대학 연합 해커톤 운영진 (배포 119 부서 - 서비스 배포 업무 수행)',
+            '<strong>운영진 이력</strong>: 2025 (13기) · 2024 (12기) · 2022 (10기) · <strong>2021 (9기 대표)</strong> · 2020 (8기 아기사자)',
         },
         {
           content:
-            '<strong>8기 아기사자</strong> (2020.03 ~ 2020.12)<br>' +
-            '- Web 교육 수강 (Python, Django, HTML/CSS/JS) 및 해커톤 참가',
+            '<strong>9기 운영진 대표</strong> 주요 활동: Git/GitHub 심화 강의 · Algorithm 스터디 운영 · 12개 대학 연합 해커톤 배포 담당 (배포 119 부서)',
         },
       ],
     },
@@ -79,20 +72,13 @@ export const activities: Record<Locale, Activity[]> = {
       title: 'LikeLion at Kookmin University',
       period: '2020.03 ~ 2025.12',
       details: [
-        { content: '<strong>13th Generation Staff</strong> (2025.01 ~ 2025.12)' },
-        { content: '<strong>12th Generation Staff</strong> (2024.01 ~ 2024.12)' },
-        { content: '<strong>10th Generation Staff</strong> (2022.01 ~ 2022.12)' },
         {
           content:
-            '<strong>9th Generation President</strong> (2021.01 ~ 2021.12)<br>' +
-            '- Led club sessions and advanced Git/GitHub lectures<br>' +
-            '- Ran the algorithm study group<br>' +
-            '- Organizer for a 12-university joint hackathon (Deployment 119 squad — owned service deployment)',
+            '<strong>Staff timeline</strong>: 2025 (13th) · 2024 (12th) · 2022 (10th) · <strong>2021 (9th, President)</strong> · 2020 (8th, Member)',
         },
         {
           content:
-            '<strong>8th Generation Member</strong> (2020.03 ~ 2020.12)<br>' +
-            '- Completed web curriculum (Python, Django, HTML/CSS/JS) and participated in hackathons',
+            '<strong>9th Generation President</strong> highlights: advanced Git/GitHub lectures · ran the algorithm study group · deployment lead at a 12-university joint hackathon (Deployment 119 squad)',
         },
       ],
     },

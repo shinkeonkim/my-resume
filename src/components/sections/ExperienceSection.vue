@@ -9,7 +9,10 @@ const experiences = useExperiences()
 </script>
 
 <template>
-  <ResumeSectionLayout :title="t('section.workExperiences')">
+  <ResumeSectionLayout
+    :title="t('section.workExperiences')"
+    :subtitle="t('section.workExperiences.subtitle')"
+  >
     <div v-for="(experience, index) in experiences" :key="index" class="company-block">
       <h3 class="company-name">{{ experience.name }}</h3>
 
