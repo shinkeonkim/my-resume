@@ -23,8 +23,7 @@ function loadVariant(): {
 }
 
 const variant = loadVariant()
-const ghBase = process.env.GITHUB_PAGES_BASE ?? '/'
-const base = variant.basePath ? `${ghBase}${variant.basePath}` : ghBase
+const base = variant.basePath ? `/${variant.basePath}` : '/'
 
 export default defineConfig({
   base,

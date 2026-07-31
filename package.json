@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
+    "build:site": "bun run type-check && bun scripts/build-site.ts",
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
@@ -16,7 +17,8 @@
     "format": "prettier --write --experimental-cli src/",
     "list-variants": "bun scripts/list-variants.ts",
     "list-base-ids": "bun scripts/list-base-ids.ts",
-    "import-variant": "bun scripts/import-variant.ts"
+    "import-variant": "bun scripts/import-variant.ts",
+    "export-resume": "bun scripts/export-resume-json.ts"
   },
   "dependencies": {
     "bulma": "^1.0.4",
