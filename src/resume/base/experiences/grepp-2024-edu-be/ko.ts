@@ -33,7 +33,7 @@ export const details: DetailItem[] = [
   {
     content: '사내 PR 리뷰 알림 봇 전사 확장',
     period: '2024.07 ~ 2024.08',
-    impact: '단일팀 도구를 <strong>4개 팀</strong>으로 범용화 · 사내 도구 인계 및 자동화',
+    impact: '단일팀 도구를 4개 팀으로 범용화 · 사내 도구 인계 및 자동화',
     subContents: [
       '팀원 정보 하드코딩 → Slack 사용자그룹 API + GitHub Username 프로필 필드 동적 조회로 대체',
       'PR "희망 리뷰 완료일" 텍스트에서 D-Day 자동 계산 → 팀별 오전 10시 Slack 알림 cron',
@@ -46,7 +46,6 @@ export const details: DetailItem[] = [
     subContents: [
       'Sentry/Slack 보고 이슈를 근본 원인까지 추적, 회귀 스펙과 함께 수정',
       '컬럼명 불일치 어드민 검색 이슈: 실제 rename 대신 alias_attribute로 해결 → 마이그레이션 다운타임 회피',
-      '2025.01~02 마무리 작업: school → lms/learn 도메인 정리로 후임자 인계 시 도메인 경계 명확화',
     ],
   },
 ]

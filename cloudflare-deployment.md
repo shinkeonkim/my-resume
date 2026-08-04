@@ -16,7 +16,7 @@
   },
   "routes": [
     {
-      "pattern": "shinkeonkim.com/my-resume",
+      "pattern": "resume.shinkeonkim.com",
       "custom_domain": true
     }
   ],
@@ -32,7 +32,7 @@
 
 ## 2. variant 빌드 (`bun run build:site`)
 
-`shinkeonkim.com/my-resume`에는 base 이력서와 public variant가 함께 배포됩니다.
+`resume.shinkeonkim.com`에는 base 이력서와 public variant가 함께 배포됩니다.
 
 - `scripts/build-site.ts`가 base를 `dist/`에 빌드한 뒤, `visibility: public`인 variant를 각각 빌드하여 `dist/v/<id>/`에 병합합니다.
 - `draft`/`private` variant는 절대 배포되지 않습니다.
@@ -50,5 +50,5 @@ Cloudflare 대시보드의 **Workers & Pages > 프로젝트 > Settings > Build &
 
 ## 4. 주의 사항
 - **인증**: 대시보드 연동 환경에서는 GitHub 계정 연결만으로 충분하며, 별도 `CLOUDFLARE_API_TOKEN`이 필요하지 않습니다.
-- **커스텀 도메인**: `wrangler deploy`가 `routes`의 `custom_domain`을 바인딩합니다. 자동 바인딩이 실패할 경우 대시보드 **Settings > Domains & Routes > Add custom domain**에서 `shinkeonkim.com/my-resume`을 직접 추가할 수 있습니다.
-- **리다이렉트**: 기존 GitHub Pages 주소(`shinkeonkim.com/my-resume/`) 유입을 새 주소로 옮기려면 zone에 리다이렉트 규칙(Redirect Rule)을 추가하세요.
+- **커스텀 도메인**: `wrangler deploy`가 `routes`의 `custom_domain`을 바인딩합니다. 자동 바인딩이 실패할 경우 대시보드 **Settings > Domains & Routes > Add custom domain**에서 `resume.shinkeonkim.com`을 직접 추가할 수 있습니다.
+- **리다이렉트**: 기존 GitHub Pages 주소(`resume.shinkeonkim.com/`) 유입을 새 주소로 옮기려면 zone에 리다이렉트 규칙(Redirect Rule)을 추가하세요.

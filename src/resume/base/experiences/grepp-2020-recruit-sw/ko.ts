@@ -7,8 +7,8 @@ export const details: DetailItem[] = [
     impact: 'JSONB 인덱싱 병목 해소 · 무중단 4단계 마이그레이션 표준 확립 · 다도메인 확산',
     subContents: [
       '이력서 6개 도메인(경력/프로젝트/교육/수상/활동/논문) jsonb 컬럼 → 필터·정렬·집계 요구 증가로 인덱싱 한계·저장 공간 낭비 병목화',
-      'GIN 인덱스 부분 튜닝 vs 정규화 대안 검토 후 도메인 별 모델 (ResumeExperience 외 5종) 로 정규화',
-      '무중단 4단계 (ignored_columns → 사용처 이관 → 컬럼 drop → 테이블 drop) 로 앱 서버 병행 배포 구간 <strong>스키마 캐시 miss 500 원천 차단</strong>',
+      'GIN 인덱스 부분 튜닝 vs 정규화 대안 검토 후 도메인 별 모델로 정규화',
+      '무중단 4단계 (ignored_columns → 사용처 이관 → 컬럼 drop → 테이블 drop) 로 앱 서버 병행 배포 구간 스키마 캐시 miss 500 원천 차단',
       '이후 회사/채용공고/대회/프로필 등 다도메인 표준 방식으로 확장, API 응답·데이터 분석 활용도 개선',
     ],
   },
@@ -25,23 +25,22 @@ export const details: DetailItem[] = [
     ],
   },
   {
-    content: '채용 도메인 SSR → SPA 전환 (개발자 검색 + 채용공고) + 서브도메인 분리',
+    content: '채용 도메인 SSR → SPA 전환 (개발자 검색 + 채용공고)',
     period: '2021.01 ~ 2022.07',
     impact:
-      'Rails SSR + CoffeeScript 강결합 스택 → Vue Composition API + TypeScript SPA 전환 · 채용 도메인을 career.programmers.co.kr 서브도메인 + 별도 job 서버로 분리',
+      'Rails SSR + CoffeeScript 강결합 스택 → Vue Composition API + TypeScript SPA 전환',
     subContents: [
-      '개발자 검색 리팩토링 (807 files 규모): SSR 컨트롤러 → 백엔드 API + Vue 컴포넌트로 분리, 이후 필터 확장 원활',
-      '채용공고 페이지 Vue SPA 전환: vue-router + Composition API + TypeScript 도메인 모델, 필터 컴포넌트화 (Tag/Company/Location/MinSalary/MinCareer + URL 동기화 + AutoComplete + sticky)',
-      '검색 하이브리드 설계: ElasticSearch (텍스트/랭킹) + PostgreSQL (정확 매칭·접근 제어) - 형태소 인프라 자체 구축 회피',
+      '개발자 검색 리팩토링 (800+ files 규모): SSR 컨트롤러 → 백엔드 API + Vue 컴포넌트로 분리, 이후 필터 확장 원활',
+      '채용공고 페이지 Vue SPA 전환: vue-router + Composition API + TypeScript 도메인 모델',
+      '검색 하이브리드 설계: ElasticSearch (텍스트/랭킹) + PostgreSQL (정확 매칭·접근 제어)',
       '회사 관점 접근 제어 (열람/차단/북마크/제안/인재풀/제외) 를 조합 가능한 scope 체인으로 설계해 신규 화면 재사용, 여러 컨트롤러 중복 필터 로직 concern 으로 통합',
-      '2022 후속: career.programmers.co.kr 서브도메인 + 별도 Sidekiq job 서버 (job_career) 분리 + hera-client SPA 저장소 통합으로 자원 격리 및 배포 독립성 확보',
       'ransack scope 화이트리스트 + Arel 바인드 파라미터로 SQL Injection 원천 차단, RSpec/Jest 테스트 다수 보강',
     ],
   },
   {
     content: '이력서 GitHub 분석기 정밀도·운영 안정성 개선',
     period: '2021.07 ~ 2021.09, 2022.03 후속 대응',
-    impact: '<strong>미분석 커밋 0건</strong> 달성 · 알람 노이즈 제거 · PAT 토큰 유출 차단',
+    impact: '미분석 커밋 0건 달성 · 알람 노이즈 제거 · PAT 토큰 유출 차단',
     subContents: [
       'Rugged::Walker 정렬 옵션 명시화 + 단일 커밋 레포 엣지 케이스 대응',
       'Timeout / HTTPError 를 별도 상태 (banned/error) 로 분리, clone URL 에 노출된 PAT 토큰 제거',
@@ -49,7 +48,7 @@ export const details: DetailItem[] = [
     ],
   },
   {
-    content: '추천 채용공고 ES → AWS Personalize 개인화 추천 전환',
+    content: '추천 채용공고 ElasticSearch → AWS Personalize 개인화 추천 전환',
     period: '2021.04 PoC · 2021.07 ~ 2021.12 안정화',
     impact:
       '자체 랭킹 → 관리형 개인화 서비스 위임 · 클릭률·지원율 향상 · 적용 영역 확장',
