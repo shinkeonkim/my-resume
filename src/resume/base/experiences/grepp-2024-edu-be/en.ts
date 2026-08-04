@@ -36,7 +36,7 @@ export const details: DetailItem[] = [
     content: 'Company-wide PR Review Notification Bot Expansion',
     period: '2024.07 ~ 2024.08',
     impact:
-      'Generalized a single-team tool to <strong>4 teams</strong> · inherited and modernized in-house automation',
+      'Generalized a single-team tool to 4 teams · inherited and modernized in-house automation',
     subContents: [
       "Replaced hard-coded member info by dynamically resolving Slack user groups API + members' GitHub Username profile field",
       "Auto-computed D-Day from PR 'desired review completion date' text → weekday 10:00 Slack alerts per team channel",
@@ -49,7 +49,6 @@ export const details: DetailItem[] = [
     subContents: [
       'Traced Sentry/Slack-reported issues to root cause and shipped fixes with regression coverage',
       'Resolved admin search column-name mismatch via alias_attribute instead of renaming — avoided migration downtime',
-      'Final 2025.01–02 hand-off work: refactored school → lms/learn domain split, clarifying domain boundaries for hand-off',
     ],
   },
 ]

@@ -29,7 +29,7 @@ export const educations: Record<Locale, Education[]> = {
         'Overall GPA: 4.42 / 4.5',
         'Major GPA: 4.46 / 4.5',
         'Web · Information Security Track',
-        'Admitted through the Software Talent special admission track',
+        'Software Talent special admission track',
       ],
     },
     {

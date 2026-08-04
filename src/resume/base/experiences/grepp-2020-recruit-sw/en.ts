@@ -9,8 +9,8 @@ export const details: DetailItem[] = [
       'Eliminated JSONB indexing bottleneck · Established 4-step zero-downtime playbook · Rolled out across multi-domain',
     subContents: [
       'Six resume sub-domains (careers/projects/education/awards/activities/publications) lived in a jsonb column → JSONB indexing limits and wasted storage became a bottleneck as filter/sort/aggregation demand grew',
-      'Reviewed GIN-index partial tuning vs. normalization; chose normalization into per-domain models (ResumeExperience + 5 others)',
-      'Ran a 4-step zero-downtime playbook (ignored_columns → caller migration → column drop → table drop) — <strong>eliminated 500 schema-cache-miss errors</strong> during parallel deploy',
+      'Reviewed GIN-index partial tuning vs. normalization; chose normalization into per-domain models',
+      'Ran a 4-step zero-downtime playbook (ignored_columns → caller migration → column drop → table drop) — eliminated 500 schema-cache-miss errors during parallel deploy',
       'Later reused as the standard playbook across company / job posting / competition / profile domains; API response and analytics improved',
     ],
   },
@@ -28,16 +28,15 @@ export const details: DetailItem[] = [
     ],
   },
   {
-    content: 'Recruitment Domain SSR → SPA Migration (Dev Search + Job Postings) + Subdomain Split',
+    content: 'Recruitment Domain SSR → SPA Migration (Dev Search + Job Postings)',
     period: '2021.01 ~ 2022.07',
     impact:
-      'Migrated tightly-coupled Rails SSR + CoffeeScript stack → Vue Composition API + TypeScript SPA · split hiring domain into career.programmers.co.kr subdomain + dedicated job server',
+      'Migrated tightly-coupled Rails SSR + CoffeeScript stack → Vue Composition API + TypeScript SPA',
     subContents: [
-      'Developer search refactor (807 files): decoupled SSR controllers into backend APIs + Vue components, enabling easy filter extensions afterwards',
-      'Job posting page Vue SPA: vue-router + Composition API + TypeScript domain models; componentized filters (Tag/Company/Location/MinSalary/MinCareer + URL sync + AutoComplete + sticky)',
-      'Hybrid search: ElasticSearch (text/ranking) + PostgreSQL (exact matching · access control) — avoided in-house morphological analysis stack',
+      'Developer search refactor (800+ files): decoupled SSR controllers into backend APIs + Vue components, enabling easy filter extensions afterwards',
+      'Job posting page Vue SPA: vue-router + Composition API + TypeScript domain models',
+      'Hybrid search: ElasticSearch (text/ranking) + PostgreSQL (exact matching · access control)',
       'Modeled company-side access control (viewed/blocked/bookmarked/offered/talent pool/exclusion) as composable scope chains reused across new screens; consolidated duplicated filter logic into a shared concern',
-      '2022 follow-up: split into career.programmers.co.kr subdomain + dedicated Sidekiq job server (job_career) + integrated hera-client SPA repo — achieving resource isolation and deployment independence',
       'Locked down SQL injection with ransack scope allowlist + Arel bind parameters; expanded RSpec/Jest coverage',
     ],
   },
@@ -45,7 +44,7 @@ export const details: DetailItem[] = [
     content: 'Resume GitHub Analyzer — Precision & Operational Reliability',
     period: '2021.07 ~ 2021.09, 2022.03 follow-up',
     impact:
-      'Drove <strong>un-analyzed commits to zero</strong> · removed alarm noise · stripped leaked PAT tokens',
+      'Drove un-analyzed commits to zero · removed alarm noise · stripped leaked PAT tokens',
     subContents: [
       'Made Rugged::Walker sort options explicit + handled single-commit-repo edge case',
       'Split Timeout / HTTPError into distinct states (banned/error); stripped PAT tokens leaking into clone URLs',
@@ -53,7 +52,7 @@ export const details: DetailItem[] = [
     ],
   },
   {
-    content: 'Job Recommendation — ES → AWS Personalize Personalization',
+    content: 'Job Recommendation — ElasticSearch → AWS Personalize Personalization',
     period: '2021.04 PoC · 2021.07 ~ 2021.12 stabilization',
     impact:
       'In-house ranking → managed personalization service · lifted CTR/apply rate · expanded surface',
