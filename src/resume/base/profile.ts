@@ -21,7 +21,7 @@ export const profileText: Record<Locale, ProfileText> = {
 export const profileContact: ProfileContact = {
   email: 'dev.shinkeonkim@gmail.com',
   github: 'https://github.com/shinkeonkim',
-  portfolio: 'https://shinkeonkim.github.io/my-portfolio/',
+  portfolio: 'https://portfolio.shinkeonkim.com',
   linkedin: 'https://www.linkedin.com/in/shinkeonkim',
   websites: [
     'https://shinkeonkim.com',
