@@ -4,6 +4,7 @@ import IntroductionSection from './sections/IntroductionSection.vue'
 import TimelineSection from './sections/TimelineSection.vue'
 import ExperienceSection from './sections/ExperienceSection.vue'
 import ProjectSection from './sections/ProjectSection.vue'
+import EducationSection from './sections/EducationSection.vue'
 import ActivitySection from './sections/ActivitySection.vue'
 import SkillsSection from './sections/SkillsSection.vue'
 import AwardsSection from './sections/AwardsSection.vue'
@@ -20,6 +21,7 @@ import CertificatesSection from './sections/CertificatesSection.vue'
       <SkillsSection />
       <ExperienceSection />
       <ProjectSection />
+      <EducationSection />
       <ActivitySection />
       <AwardsSection />
       <CertificatesSection />

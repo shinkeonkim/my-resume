@@ -1,74 +1,21 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import ResumeSectionLayout from '../ResumeSectionLayout.vue'
 import ExperienceItem from '../ExperienceItem.vue'
-import { useActivities, useEducations } from '@/composables/useResumeData'
+import { useActivities } from '@/composables/useResumeData'
 import { useLocale } from '@/composables/useLocale'
-
-interface DetailItem {
-  content: string
-  period?: string
-  subContents?: string[]
-}
-
-interface UnifiedItem {
-  kind: 'education' | 'activity'
-  title: string
-  period: string
-  details: DetailItem[]
-}
 
 const { t } = useLocale()
 const activities = useActivities()
-const educations = useEducations()
-
-const items = computed<UnifiedItem[]>(() => {
-  const edus = educations.value
-  const result: UnifiedItem[] = []
-
-  // Combine all education entries into a single card so that it occupies
-  // exactly one slot in the 2x2 activity grid (top-left).
-  if (edus.length) {
-    const eduDetails: DetailItem[] = edus.map((edu) => ({
-      content: edu.major
-        ? `${edu.school} · ${edu.major}<br><span class="has-text-grey is-size-7">${edu.period}</span>`
-        : `${edu.school} <span class="has-text-grey is-size-7">· ${edu.period}</span>`,
-      subContents: edu.details.length ? edu.details : undefined,
-    }))
-
-    result.push({
-      kind: 'education',
-      title: t('section.education'),
-      period: '',
-      details: eduDetails,
-    })
-  }
-
-  for (const a of activities.value) {
-    result.push({
-      kind: 'activity',
-      title: a.title,
-      period: a.period,
-      details: a.details,
-    })
-  }
-
-  return result
-})
 </script>
 
 <template>
   <ResumeSectionLayout :title="t('section.activities')">
     <div class="activity-grid">
-      <div
-        v-for="(item, index) in items"
-        :key="index"
-        class="activity-col"
-      >
+      <div v-for="(activity, index) in activities" :key="index" class="activity-col">
         <ExperienceItem
-          :title="item.title"
-          :period="item.period"
-          :details="item.details"
+          :title="activity.title"
+          :period="activity.period"
+          :details="activity.details"
         />
       </div>
     </div>
