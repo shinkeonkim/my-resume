@@ -33,11 +33,11 @@ export const details: DetailItem[] = [
     impact:
       'Migrated tightly-coupled Rails SSR + CoffeeScript stack → Vue Composition API + TypeScript SPA',
     subContents: [
-      'Developer search refactor (800+ files): decoupled SSR controllers into backend APIs + Vue components, enabling easy filter extensions afterwards',
-      'Job posting page Vue SPA: vue-router + Composition API + TypeScript domain models',
-      'Hybrid search: ElasticSearch (text/ranking) + PostgreSQL (exact matching · access control)',
-      'Modeled company-side access control (viewed/blocked/bookmarked/offered/talent pool/exclusion) as composable scope chains reused across new screens; consolidated duplicated filter logic into a shared concern',
-      'Locked down SQL injection with ransack scope allowlist + Arel bind parameters; expanded RSpec/Jest coverage',
+      '<strong>Developer search SPA migration</strong>: decoupled SSR controllers into backend APIs + Vue components across 800+ files, making later filter extensions straightforward',
+      '<strong>Job posting SPA migration</strong>: rebuilt on vue-router + Composition API + TypeScript domain models',
+      '<strong>Search backend split</strong>: ElasticSearch (text/ranking) + PostgreSQL (exact matching · access control) hybrid design',
+      '<strong>Reusable query structure</strong>: modeled company-side access control (viewed/blocked/bookmarked/offered/talent pool/exclusion) as composable scope chains and a shared concern reused across new screens',
+      '<strong>Security &amp; test hardening</strong>: locked down SQL injection with ransack scope allowlist + Arel bind parameters; expanded RSpec/Jest coverage',
     ],
   },
   {
@@ -68,10 +68,10 @@ export const details: DetailItem[] = [
     impact:
       'New competition system + <strong>Test coverage 70% → 80%</strong> · Per-division error alert routing',
     subContents: [
-      'Competition admin/detail/registration Excel/statistics/responsive layout + V1 API (detail/application/leaderboard/cancellation), applied pagination to completed-competitions list proactively',
-      'Bulk company registration via activerecord-import + on_duplicate_key_ignore — constant round trips vs. find_or_create_by loops',
-      'Consolidated heavy admin select boxes (loading full collections) and custom-ransacker copy-paste patterns into AJAX remote search + native ransack association filters',
-      'Test Suite let_it_be full transition (40+ split PRs); tagged hiring-domain controllers/channels/jobs with dept.career → error handler routes to hiring-division Slack channel',
+      '<strong>Domain expansion</strong>: competition admin/detail/registration Excel/statistics/responsive layout + V1 API (detail/application/leaderboard/cancellation), with proactive pagination on the completed-competitions list',
+      '<strong>Bulk registration optimization</strong>: replaced find_or_create_by loops with activerecord-import + on_duplicate_key_ignore, making round trips constant',
+      '<strong>Test coverage 70% → 80%</strong>: migrated the test suite to let_it_be across 40+ split PRs',
+      '<strong>Error alert routing</strong>: tagged hiring-domain controllers/channels/jobs with dept.career so the error handler routes to the hiring-division Slack channel',
     ],
   },
 ]

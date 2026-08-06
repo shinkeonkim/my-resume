@@ -31,15 +31,6 @@ export const details: DetailItem[] = [
     ],
   },
   {
-    content: '사내 PR 리뷰 알림 봇 전사 확장',
-    period: '2024.07 ~ 2024.08',
-    impact: '단일팀 도구를 4개 팀으로 범용화 · 사내 도구 인계 및 자동화',
-    subContents: [
-      '팀원 정보 하드코딩 → Slack 사용자그룹 API + GitHub Username 프로필 필드 동적 조회로 대체',
-      'PR "희망 리뷰 완료일" 텍스트에서 D-Day 자동 계산 → 팀별 오전 10시 Slack 알림 cron',
-    ],
-  },
-  {
     content: '프로그래머스 스쿨 / 캠퍼스 LMS 유지보수 및 신규 기능 개발',
     period: '2024.07 ~ 2025.03',
     impact: 'LMS 운영 이슈 근본 원인 추적 + 회귀 스펙과 함께 수정',

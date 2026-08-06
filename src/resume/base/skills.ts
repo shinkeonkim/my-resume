@@ -3,7 +3,7 @@ import type { Locale, SkillsData } from './types'
 export const skills: Record<Locale, SkillsData> = {
   ko: {
     skills: {
-      '프로그래밍 언어': ['Python', 'Ruby', 'C/C++', 'Golang', 'Java', 'JavaScript'],
+      '프로그래밍 언어': ['Python', 'Ruby', 'C/C++', 'Golang', 'JavaScript'],
       '웹 프레임워크': ['Ruby on Rails', 'Django', 'FastAPI'],
       DevOps: ['AWS', 'Docker', 'GitHub', 'GitHub Actions', 'Kubernetes'],
     },
@@ -44,7 +44,7 @@ export const skills: Record<Locale, SkillsData> = {
   },
   en: {
     skills: {
-      'Programming Language': ['Python', 'Ruby', 'C/C++', 'Golang', 'Java', 'JavaScript'],
+      'Programming Language': ['Python', 'Ruby', 'C/C++', 'Golang', 'JavaScript'],
       'Web Framework': ['Ruby on Rails', 'Django', 'FastAPI'],
       DevOps: ['AWS', 'Docker', 'GitHub', 'GitHub Actions', 'Kubernetes'],
     },

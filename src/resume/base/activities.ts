@@ -22,47 +22,13 @@ export const activities: Record<Locale, Activity[]> = {
       details: [
         {
           content:
-            '<strong>소프트웨어프로젝트2 헬퍼</strong> (2025.09 ~ 2025.12)<br>' +
-            '- 수강생 질문 답변 및 이슈 해결을 위한 학부 조교 <br>' +
-            '- Arduino를 활용한 회로 및 기초 프로그래밍에 대한 지원 <br>' +
-            '- Arduino를 활용한 PID 제어 프로젝트에 대한 지원 ',
+            '<strong>지원 학기</strong>: 2025-2 소프트웨어프로젝트2 · 2025-1 소프트웨어프로젝트1 · ' +
+            '2020-2 LabAnywhere Supporter · 2020-1 소프트웨어프로젝트1',
         },
         {
           content:
-            '<strong>소프트웨어프로젝트1 헬퍼</strong> (2025.04 ~ 2025.06 / 2020.04 ~ 2020.06)<br>' +
-            '- 수강생 질문 답변 및 이슈 해결을 위한 학부 조교 <br>' +
-            '- Git, 라즈베리파이, Ubuntu 등에 대한 지원',
-        },
-        {
-          content:
-            '<strong>LabAnywhere Supporter</strong> (2020.09 ~ 2020.12)<br>' +
-            '- 학부 실습 환경 설정 지원 및 Ubuntu에 대한 강의 진행',
-        },
-      ],
-    },
-    {
-      title: '강사 / 교육 봉사',
-      period: '2019.01 ~ 2020.12',
-      details: [
-        {
-          content:
-            '<strong>구일고등학교 연합형 교육과정 보조강사</strong> (2020.09 ~ 2020.12)<br>' +
-            '- 정보 수업 보조 강사 (Python3, 데이터 과학)',
-        },
-        {
-          content:
-            '<strong>제21기 하계 대학생 재능봉사 캠프</strong> (2020.08)<br>' +
-            '- 한국장학재단 주관, 마이크로비트/엔트리 활용 강의',
-        },
-        {
-          content:
-            '<strong>구로고등학교 연합형 교육과정 보조강사</strong> (2019.09 ~ 2019.12)<br>' +
-            '- 정보 수업 보조 강사 (Python3, 데이터 과학)',
-        },
-        {
-          content:
-            '<strong>한민고 겨울방학 코딩캠프 강사</strong> (2019.01)<br>' +
-            '- 군인 중학생 자녀 대상 C언어 기초 문법 강의 (4박 5일)',
+            '<strong>지원 범위</strong>: 학부 조교로 수강생 질문 답변과 실습 이슈 해결 · ' +
+            'Git / 라즈베리파이 / Ubuntu / Arduino (회로 · 기초 프로그래밍 · PID 제어) · 실습 환경 설정 및 Ubuntu 강의',
         },
       ],
     },
@@ -88,47 +54,13 @@ export const activities: Record<Locale, Activity[]> = {
       details: [
         {
           content:
-            '<strong>Software Project 2 Helper</strong> (2025.09 ~ 2025.12)<br>' +
-            '- Undergraduate TA answering student questions and resolving issues<br>' +
-            '- Supported circuit and basic programming work with Arduino<br>' +
-            '- Supported a PID control project built on Arduino',
+            '<strong>Terms served</strong>: 2025-2 Software Project 2 · 2025-1 Software Project 1 · ' +
+            '2020-2 LabAnywhere Supporter · 2020-1 Software Project 1',
         },
         {
           content:
-            '<strong>Software Project 1 Helper</strong> (2025.04 ~ 2025.06 / 2020.04 ~ 2020.06)<br>' +
-            '- Undergraduate TA answering student questions and resolving issues<br>' +
-            '- Supported Git, Raspberry Pi, and Ubuntu environments',
-        },
-        {
-          content:
-            '<strong>LabAnywhere Supporter</strong> (2020.09 ~ 2020.12)<br>' +
-            '- Helped set up the undergraduate lab environment and lectured on Ubuntu',
-        },
-      ],
-    },
-    {
-      title: 'Instructor / Education Volunteer',
-      period: '2019.01 ~ 2020.12',
-      details: [
-        {
-          content:
-            '<strong>Guil High School Joint Curriculum Assistant Instructor</strong> (2020.09 ~ 2020.12)<br>' +
-            '- Assistant instructor for the Informatics class (Python 3, data science)',
-        },
-        {
-          content:
-            '<strong>21st Summer University Talent Volunteer Camp</strong> (2020.08)<br>' +
-            '- Hosted by the Korea Student Aid Foundation, lectured on micro:bit and Entry',
-        },
-        {
-          content:
-            '<strong>Guro High School Joint Curriculum Assistant Instructor</strong> (2019.09 ~ 2019.12)<br>' +
-            '- Assistant instructor for the Informatics class (Python 3, data science)',
-        },
-        {
-          content:
-            '<strong>Hanmin High School Winter Coding Camp Instructor</strong> (2019.01)<br>' +
-            '- 5-day C language fundamentals course for middle-school children of service members',
+            '<strong>Scope</strong>: undergraduate TA answering student questions and resolving lab issues · ' +
+            'Git / Raspberry Pi / Ubuntu / Arduino (circuits · basic programming · PID control) · lab environment setup and Ubuntu lectures',
         },
       ],
     },

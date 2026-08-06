@@ -30,11 +30,11 @@ export const details: DetailItem[] = [
     impact:
       'Rails SSR + CoffeeScript 강결합 스택 → Vue Composition API + TypeScript SPA 전환',
     subContents: [
-      '개발자 검색 리팩토링 (800+ files 규모): SSR 컨트롤러 → 백엔드 API + Vue 컴포넌트로 분리, 이후 필터 확장 원활',
-      '채용공고 페이지 Vue SPA 전환: vue-router + Composition API + TypeScript 도메인 모델',
-      '검색 하이브리드 설계: ElasticSearch (텍스트/랭킹) + PostgreSQL (정확 매칭·접근 제어)',
-      '회사 관점 접근 제어 (열람/차단/북마크/제안/인재풀/제외) 를 조합 가능한 scope 체인으로 설계해 신규 화면 재사용, 여러 컨트롤러 중복 필터 로직 concern 으로 통합',
-      'ransack scope 화이트리스트 + Arel 바인드 파라미터로 SQL Injection 원천 차단, RSpec/Jest 테스트 다수 보강',
+      '<strong>개발자 검색 SPA 전환</strong>: 800+ files 규모로 SSR 컨트롤러를 백엔드 API + Vue 컴포넌트로 분리, 이후 필터 확장이 원활해짐',
+      '<strong>채용공고 SPA 전환</strong>: vue-router + Composition API + TypeScript 도메인 모델 기반으로 재구성',
+      '<strong>검색 백엔드 분리</strong>: ElasticSearch (텍스트/랭킹) + PostgreSQL (정확 매칭·접근 제어) 하이브리드 설계',
+      '<strong>쿼리 재사용 구조</strong>: 회사 관점 접근 제어 (열람/차단/북마크/제안/인재풀/제외) 를 조합 가능한 scope 체인과 concern 으로 통합해 신규 화면에서 재사용',
+      '<strong>보안·테스트 보강</strong>: ransack scope 화이트리스트 + Arel 바인드 파라미터로 SQL Injection 원천 차단, RSpec/Jest 테스트 다수 보강',
     ],
   },
   {
@@ -64,10 +64,10 @@ export const details: DetailItem[] = [
     impact:
       '대회 시스템 신규 확장 + <strong>테스트 커버리지 70% → 80%</strong> · 사업부별 에러 알림 라우팅',
     subContents: [
-      '대회 시스템 어드민/상세/등록 엑셀/통계/반응형 + V1 API (상세/지원/리더보드/취소) 확장, 종료 대회 페이지네이션 선제 적용',
-      '기업 대량 등록 activerecord-import + on_duplicate_key_ignore 로 왕복 횟수 상수화 (find_or_create_by 루프 대비)',
-      '어드민 무거운 select box (전체 collection 로딩) 와 커스텀 ransacker 복붙 패턴을 AJAX 원격 검색 + 네이티브 ransack 연관 필터로 일괄 정리',
-      'Test Suite let_it_be 전면 전환 (40+ 회 분할), 채용 도메인에 dept.career 태그 부착 → 에러 핸들러가 채용사업부 Slack 채널로 라우팅',
+      '<strong>도메인 확장</strong>: 대회 어드민/상세/등록 엑셀/통계/반응형 + V1 API (상세/지원/리더보드/취소) 확장, 종료 대회 목록에 페이지네이션 선제 적용',
+      '<strong>대량 등록 최적화</strong>: 기업 대량 등록을 activerecord-import + on_duplicate_key_ignore 로 바꿔 find_or_create_by 루프 대비 왕복 횟수를 상수화',
+      '<strong>테스트 커버리지 70% → 80%</strong>: Test Suite 를 let_it_be 로 전면 전환 (40+ 회 분할)',
+      '<strong>에러 알림 라우팅</strong>: 채용 도메인에 dept.career 태그를 부착해 에러 핸들러가 채용사업부 Slack 채널로 라우팅하도록 구성',
     ],
   },
 ]
