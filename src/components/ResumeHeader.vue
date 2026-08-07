@@ -15,7 +15,6 @@ const profile = computed(() => ({
   github: profileContact.github,
   portfolio: profileContact.portfolio,
   websites: profileContact.websites,
-  linkedin: profileContact.linkedin,
 }))
 </script>
 
@@ -64,16 +63,6 @@ const profile = computed(() => ({
             >
               <span class="icon is-small mr-2"><i class="fas fa-briefcase"></i></span>
               <span class="url-text">{{ profile.portfolio }}</span>
-            </a>
-          </div>
-          <div class="contact-item">
-            <a
-              :href="profile.linkedin"
-              target="_blank"
-              class="icon-text has-text-black is-flex is-align-items-center"
-            >
-              <span class="icon is-small mr-2"><i class="fab fa-linkedin"></i></span>
-              <span class="url-text">{{ profile.linkedin }}</span>
             </a>
           </div>
           <v-for

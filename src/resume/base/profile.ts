@@ -9,7 +9,6 @@ export interface ProfileContact {
   email: string
   github: string
   portfolio: string
-  linkedin: string
   websites: string[]
 }
 
@@ -22,7 +21,6 @@ export const profileContact: ProfileContact = {
   email: 'dev.shinkeonkim@gmail.com',
   github: 'https://github.com/shinkeonkim',
   portfolio: 'https://portfolio.shinkeonkim.com',
-  linkedin: 'https://www.linkedin.com/in/shinkeonkim',
   websites: [
     'https://shinkeonkim.com',
   ],

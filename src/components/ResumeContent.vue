@@ -9,6 +9,7 @@ import ActivitySection from './sections/ActivitySection.vue'
 import SkillsSection from './sections/SkillsSection.vue'
 import AwardsSection from './sections/AwardsSection.vue'
 import CertificatesSection from './sections/CertificatesSection.vue'
+import PageBreak from './PageBreak.vue'
 </script>
 
 <template>
@@ -20,7 +21,9 @@ import CertificatesSection from './sections/CertificatesSection.vue'
       <TimelineSection />
       <SkillsSection />
       <ExperienceSection />
+      <PageBreak />
       <ProjectSection />
+      <PageBreak />
       <EducationSection />
       <ActivitySection />
       <AwardsSection />
