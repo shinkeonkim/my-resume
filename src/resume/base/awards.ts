@@ -21,8 +21,8 @@ export const awards: Record<Locale, Award[]> = {
       issuer: 'RoboCup China Open',
     },
     {
-      name: '2017 ICT 어워드코리아 C언어 알고리즘 프로그래밍 동상',
-      date: '2017.11',
+      name: '2017 ICT 어워드코리아 알고리즘 프로그래밍 동상',
+      date: '2017.07',
       issuer: '한국정보과학진흥협회, 안양대학교',
     },
     {
@@ -55,8 +55,8 @@ export const awards: Record<Locale, Award[]> = {
       issuer: 'RoboCup China Open',
     },
     {
-      name: '2017 ICT Award Korea C Algorithm Programming — Bronze',
-      date: '2017.11',
+      name: '2017 ICT Award Korea Algorithm Programming — Bronze',
+      date: '2017.07',
       issuer: 'Korea Information Science Society & Anyang University',
     },
     {
