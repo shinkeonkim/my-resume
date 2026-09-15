@@ -12,7 +12,12 @@ import { meta as athenaMeta } from './proj-athena/meta'
 import { details as athenaKo } from './proj-athena/ko'
 import { details as athenaEn } from './proj-athena/en'
 
+import { meta as clothoMeta } from './proj-clotho/meta'
+import { details as clothoKo } from './proj-clotho/ko'
+import { details as clothoEn } from './proj-clotho/en'
+
 export const projectEntities: ProjectEntity[] = [
+  { ...clothoMeta, details: { ko: clothoKo, en: clothoEn } },
   { ...mefitMeta, details: { ko: mefitKo, en: mefitEn } },
   { ...kkambbakiMeta, details: { ko: kkambbakiKo, en: kkambbakiEn } },
   { ...athenaMeta, details: { ko: athenaKo, en: athenaEn } },

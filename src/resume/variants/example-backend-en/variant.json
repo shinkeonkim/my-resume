@@ -2,19 +2,19 @@
   "schema": "ResumeVariant.v1",
   "id": "example-backend-en",
   "meta": {
-    "label": "Example Backend Engineer (EN)",
+    "label": "Example SW Engineer (EN)",
     "visibility": "draft",
     "locale": "en",
     "jdRef": {
       "company": "Example Corp",
-      "role": "Backend Engineer"
+      "role": "SW Engineer"
     },
     "source": "manual",
     "updatedAt": "2026-06-11T00:00:00Z"
   },
   "overrides": {
     "summary": "Backend-focused engineer with deep Rails/Django delivery, k3s/AWS ops, and LLM integration record.",
-    "headline": "Backend Engineer · Distributed Systems",
+    "headline": "SW Engineer · Distributed Systems",
     "include": {
       "experienceIds": ["grepp-2024-edu-be", "grepp-2020-recruit-sw"],
       "projectIds": ["proj-mefit", "proj-athena"]

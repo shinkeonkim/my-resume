@@ -7,8 +7,8 @@ export const meta: ExperienceMeta = {
     en: 'Grepp Inc. (Programmers)',
   },
   roleTitle: {
-    ko: '교육솔루션팀 / Backend Engineer',
-    en: 'Education Solution Team / Backend Engineer',
+    ko: '교육솔루션팀 / SW Engineer',
+    en: 'Education Solution Team / SW Engineer',
   },
   period: '2024.07 ~ 2025.03',
   techStack: [
