@@ -37,6 +37,13 @@ export const timelineItems: Record<Locale, TimelineItem[]> = {
       paddingLeft: 0,
       segments: [{ start: '2022.11', end: '2024.05' }],
     },
+    {
+      id: 5,
+      name: 'acrossB',
+      type: 'career',
+      paddingLeft: 0,
+      segments: [{ start: '2026.09', end: 'Present' }],
+    },
   ],
   en: [
     {
@@ -68,6 +75,13 @@ export const timelineItems: Record<Locale, TimelineItem[]> = {
       type: 'career',
       paddingLeft: 0,
       segments: [{ start: '2022.11', end: '2024.05' }],
+    },
+    {
+      id: 5,
+      name: 'acrossB',
+      type: 'career',
+      paddingLeft: 0,
+      segments: [{ start: '2026.09', end: 'Present' }],
     },
   ],
 }

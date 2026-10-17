@@ -1,5 +1,9 @@
 import type { ExperienceEntity } from '../types'
 
+import { meta as acrossb2026FullstackMeta } from './acrossb-2026-fullstack/meta'
+import { details as acrossb2026FullstackKo } from './acrossb-2026-fullstack/ko'
+import { details as acrossb2026FullstackEn } from './acrossb-2026-fullstack/en'
+
 import { meta as grepp2024EduBeMeta } from './grepp-2024-edu-be/meta'
 import { details as grepp2024EduBeKo } from './grepp-2024-edu-be/ko'
 import { details as grepp2024EduBeEn } from './grepp-2024-edu-be/en'
@@ -17,6 +21,10 @@ import { details as armySpecial2022Ko } from './army-special-2022/ko'
 import { details as armySpecial2022En } from './army-special-2022/en'
 
 export const experienceEntities: ExperienceEntity[] = [
+  {
+    ...acrossb2026FullstackMeta,
+    details: { ko: acrossb2026FullstackKo, en: acrossb2026FullstackEn },
+  },
   {
     ...grepp2024EduBeMeta,
     details: { ko: grepp2024EduBeKo, en: grepp2024EduBeEn },
